@@ -7,20 +7,23 @@
 //
 
 #import "_0daylist_iphoneAppDelegate.h"
+#import "ProductsOverviewController.h"
 
 
 @implementation _0daylist_iphoneAppDelegate
 
 @synthesize window;
+@synthesize navigationController;
 
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    
-    // Override point for customization after application launch.
-    
+	ProductsOverviewController *viewController = (ProductsOverviewController *)navigationController.topViewController;
+	viewController.managedObjectContext = self.managedObjectContext;
+	
+	[self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -194,6 +197,7 @@
     [managedObjectModel_ release];
     [persistentStoreCoordinator_ release];
     
+	[navigationController release];
     [window release];
     [super dealloc];
 }

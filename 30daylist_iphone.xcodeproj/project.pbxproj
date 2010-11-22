@@ -15,6 +15,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
+		492BE975129B16AD0011657A /* ProductsOverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BE974129B16AD0011657A /* ProductsOverviewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		28D801B30F44B63D00FB423F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* _0daylist_iphone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _0daylist_iphone_Prefix.pch; sourceTree = "<group>"; };
+		492BE973129B16AD0011657A /* ProductsOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsOverviewController.h; sourceTree = "<group>"; };
+		492BE974129B16AD0011657A /* ProductsOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsOverviewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "_0daylist_iphone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +91,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				492BE973129B16AD0011657A /* ProductsOverviewController.h */,
+				492BE974129B16AD0011657A /* ProductsOverviewController.m */,
 				2819305F112F816700ECF9B4 /* _0daylist_iphone.xcdatamodeld */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */,
@@ -169,6 +174,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* _0daylist_iphoneAppDelegate.m in Sources */,
 				28193060112F816700ECF9B4 /* _0daylist_iphone.xcdatamodeld in Sources */,
+				492BE975129B16AD0011657A /* ProductsOverviewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
