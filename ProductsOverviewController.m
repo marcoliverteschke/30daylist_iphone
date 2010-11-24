@@ -27,6 +27,7 @@
 - (NSFetchedResultsController *)fetchedResultsController {
 	if(fetchedResultsController != nil)
 		return fetchedResultsController;
+
 	NSFetchRequest *fetchedRequest = [NSFetchRequest new];
 	NSEntityDescription *productDescription = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
 	[fetchedRequest setEntity:productDescription];
@@ -57,7 +58,13 @@
 		NSLog(@"Fehler beim Speichern des Produkts");
 	}
 	
-	[self.tableView reloadData];
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	tableView.allowsSelectionDuringEditing = YES;
+	return 1;
 }
 
 
@@ -100,12 +107,13 @@
 		[managedObjectContext deleteObject:[fetchedResultsController objectAtIndexPath:indexPath]];
 		NSError *error;
 		
-		if (![managedObjectContext save:&error]) {
+		if (![managedObjectContext save:error]) {
 			NSLog(@"Fehler beim Löschen");
 			return;
 		}
 		
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+		[tableView reloadData];
 	}
 }
 
@@ -113,6 +121,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newProduct)];
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.16f green:0.36f blue:0.46 alpha:0.8];
 	self.navigationItem.rightBarButtonItem = addButton;
 	[addButton release];
 }
