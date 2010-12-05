@@ -7,6 +7,7 @@
 //
 
 #import "ProductsOverviewController.h"
+#import "SingleProductViewController.h"
 
 
 @implementation ProductsOverviewController
@@ -27,23 +28,46 @@
 - (NSFetchedResultsController *)fetchedResultsController {
 	if(fetchedResultsController != nil)
 		return fetchedResultsController;
-
-	NSFetchRequest *fetchedRequest = [NSFetchRequest new];
+	
+	NSFetchRequest *fetchRequest = [NSFetchRequest new];
 	NSEntityDescription *productDescription = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
-	[fetchedRequest setEntity:productDescription];
+	[fetchRequest setEntity:productDescription];
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"found_date" ascending:YES];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	[fetchedRequest setSortDescriptors:sortDescriptors];
-	fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchedRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Overview"];
+	[fetchRequest setSortDescriptors:sortDescriptors];
+	fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Overview"];
 	fetchedResultsController.delegate = self;
-	[fetchedRequest release];
+	[fetchRequest release];
 	[sortDescriptor release];
 	[sortDescriptors release];
 	return fetchedResultsController;
 }
 
 
-- (IBAction)newProduct {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
+	
+	SingleProductViewController *singleProductViewController = [[SingleProductViewController alloc] initWithNibName:@"SingleProductViewController" bundle:nil];
+	singleProductViewController.product = product;
+	[self.navigationController pushViewController:singleProductViewController animated:YES];
+	
+	[singleProductViewController release];
+}
+
+
+- (IBAction)showAddProductForm {
+	NSEntityDescription *productDescription = [[fetchedResultsController fetchRequest] entity];
+	NSManagedObject *newProduct = [NSEntityDescription insertNewObjectForEntityForName:[productDescription name] inManagedObjectContext:managedObjectContext];
+	
+	SingleProductViewController *singleProductViewController = [[SingleProductViewController alloc] initWithNibName:@"SingleProductViewController" bundle:nil];
+	singleProductViewController.product = newProduct;
+	[self.navigationController pushViewController:singleProductViewController animated:YES];
+	
+	[singleProductViewController release];
+}
+
+
+/*- (IBAction)addProduct {
 	NSEntityDescription *productDescription = [[fetchedResultsController fetchRequest] entity];
 	NSManagedObject *newProduct = [NSEntityDescription insertNewObjectForEntityForName:[productDescription name] inManagedObjectContext:managedObjectContext];
 	[newProduct setValue:@"iPad" forKey:@"name"];
@@ -57,7 +81,37 @@
 	if (![managedObjectContext save:&error]) {
 		NSLog(@"Fehler beim Speichern des Produkts");
 	}
+	if (![fetchedResultsController performFetch:&error]) {
+		NSLog(@"Fehler beim Laden");
+		return;
+	}
 	
+	[self.tableView reloadData];
+}*/
+
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+
+	self.navigationItem.leftBarButtonItem = self.editButtonItem;
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAddProductForm)];
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f];
+	self.navigationItem.rightBarButtonItem = addButton;
+
+	[addButton release];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	NSError *error;
+	if (![self.fetchedResultsController performFetch:&error]) {
+		NSLog(@"Fehler beim Laden");
+		return;
+	}
+	
+	[self.tableView reloadData];
 }
 
 
@@ -90,12 +144,18 @@
 	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
 	
 	cell.textLabel.text = [product valueForKey:@"name"];
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	NSDateFormatter *dateFormatter = [NSDateFormatter new];
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-	NSString *dateString = [dateFormatter stringFromDate:[product valueForKey:@"found_date"]];
-	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %@", nil), [product valueForKey:@"price"], [product valueForKey:@"found_where"], dateString];
+	NSTimeInterval timeInterval = [[product valueForKey:@"found_date"] timeIntervalSinceNow];
+	NSInteger daysUntil = 30 + ceil(timeInterval / 86400);
+	
+	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d", nil), [product valueForKey:@"price"], [product valueForKey:@"found_where"], daysUntil];
+	
+//	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+//	cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	[dateFormatter release];
 	return cell;
@@ -104,39 +164,22 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[managedObjectContext deleteObject:[fetchedResultsController objectAtIndexPath:indexPath]];
-		NSError *error;
+		NSManagedObject *objectToBeDeleted = [fetchedResultsController objectAtIndexPath:indexPath];
+		[managedObjectContext deleteObject:objectToBeDeleted];
 		
-		if (![managedObjectContext save:error]) {
+		NSError *error;
+		if (![managedObjectContext save:&error]) {
 			NSLog(@"Fehler beim Löschen");
+			return;
+		}
+		if (![fetchedResultsController performFetch:&error]) {
+			NSLog(@"Fehler beim Laden");
 			return;
 		}
 		
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
 		[tableView reloadData];
 	}
-}
-
-
-- (void)viewDidLoad {
-	[super viewDidLoad];
-	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newProduct)];
-	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.16f green:0.36f blue:0.46 alpha:0.8];
-	self.navigationItem.rightBarButtonItem = addButton;
-	[addButton release];
-}
-
-
-- (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-	
-	NSError *error;
-	if (![self.fetchedResultsController performFetch:&error]) {
-		NSLog(@"Fehler beim Laden");
-		return;
-	}
-	
-	[self.tableView reloadData];
 }
 
 
