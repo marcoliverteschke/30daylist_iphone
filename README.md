@@ -16,3 +16,8 @@ The item will be on your list for 30 days. On day 30 you will get a reminder to 
 
 30daylist was inspired by [this Lifehacker-post](http://lifehacker.com/5331634/skip-impulse-buys-with-a-30+day-list).
 
+
+## Next Steps:
+
+* Add managed object context to new product form
+* store product from form

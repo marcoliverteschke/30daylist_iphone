@@ -188,9 +188,7 @@
 		);
 		breakpoints = (
 			4968C61C12A2BB940079533A /* ProductsOverviewController.m:166 */,
-			49C276D412AC00E4006BE9DC /* SingleProductViewController.m:46 */,
-			49F230E712AC073F004B86B6 /* ProductsOverviewController.m:120 */,
-			49F230E912AC0741004B86B6 /* ProductsOverviewController.m:126 */,
+			494EB8AD12AE888A0011247B /* SingleProductViewController.m:51 */,
 		);
 		codeSenseManager = 49E048AE129ADDB90048F841 /* Code sense */;
 		executables = (
@@ -226,7 +224,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					671,
+					627,
 					20,
 					48,
 					43,
@@ -267,18 +265,18 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 313263510;
-			PBXWorkspaceStateSaveDate = 313263510;
+			PBXPerProjectTemplateStateSaveDate = 313427736;
+			PBXWorkspaceStateSaveDate = 313427736;
 		};
 		perUserProjectItems = {
 			492BE981129B1A0E0011657A /* PlistBookmark */ = 492BE981129B1A0E0011657A /* PlistBookmark */;
+			494EB8EF12AE8D990011247B /* PBXTextBookmark */ = 494EB8EF12AE8D990011247B /* PBXTextBookmark */;
+			494EB8F012AE8D990011247B /* PBXTextBookmark */ = 494EB8F012AE8D990011247B /* PBXTextBookmark */;
+			494EB8FC12AE8E420011247B /* PBXTextBookmark */ = 494EB8FC12AE8E420011247B /* PBXTextBookmark */;
 			4968C60012A2B8570079533A /* PBXTextBookmark */ = 4968C60012A2B8570079533A /* PBXTextBookmark */;
 			4968C60112A2B8570079533A /* PBXTextBookmark */ = 4968C60112A2B8570079533A /* PBXTextBookmark */;
 			49C276A712ABFFAC006BE9DC /* PBXTextBookmark */ = 49C276A712ABFFAC006BE9DC /* PBXTextBookmark */;
 			49C276A912ABFFAC006BE9DC /* PBXTextBookmark */ = 49C276A912ABFFAC006BE9DC /* PBXTextBookmark */;
-			49F2310712AC08EB004B86B6 /* PBXTextBookmark */ = 49F2310712AC08EB004B86B6 /* PBXTextBookmark */;
-			49F2310812AC08EB004B86B6 /* PBXTextBookmark */ = 49F2310812AC08EB004B86B6 /* PBXTextBookmark */;
-			49F2310E12AC0936004B86B6 /* PBXTextBookmark */ = 49F2310E12AC0936004B86B6 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 49E048AD129ADDB90048F841 /* Source Control */;
 		userBuildSettings = {
@@ -293,9 +291,9 @@
 	};
 	492BE974129B16AD0011657A /* ProductsOverviewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1215, 2899}}";
-			sepNavSelRange = "{4391, 0}";
-			sepNavVisRange = "{4134, 508}";
+			sepNavIntBoundsRect = "{{0, 0}, {1335, 2587}}";
+			sepNavSelRange = "{3580, 352}";
+			sepNavVisRange = "{2232, 2067}";
 		};
 	};
 	492BE981129B1A0E0011657A /* PlistBookmark */ = {
@@ -308,6 +306,54 @@
 		name = "/Users/marc/workspace/30daylist_iphone/_0daylist_iphone-Info.plist";
 		rLen = 0;
 		rLoc = 9223372036854775808;
+	};
+	494EB8AD12AE888A0011247B /* SingleProductViewController.m:51 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 4968C68212A2C2C10079533A /* SingleProductViewController.m */;
+		functionName = "-textFieldShouldReturn:";
+		hitCount = 3;
+		ignoreCount = 0;
+		lineNumber = 51;
+		location = 30daylist_iphone;
+		modificationTime = 313428997.425211;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	494EB8EF12AE8D990011247B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 492BE974129B16AD0011657A /* ProductsOverviewController.m */;
+		name = "ProductsOverviewController.m: 97";
+		rLen = 352;
+		rLoc = 3580;
+		rType = 0;
+		vrLen = 2067;
+		vrLoc = 2232;
+	};
+	494EB8F012AE8D990011247B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */;
+		name = "SingleProductViewController.m: 82";
+		rLen = 0;
+		rLoc = 3220;
+		rType = 0;
+		vrLen = 2606;
+		vrLoc = 554;
+	};
+	494EB8FC12AE8E420011247B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */;
+		name = "SingleProductViewController.m: 57";
+		rLen = 0;
+		rLoc = 1379;
+		rType = 0;
+		vrLen = 2728;
+		vrLoc = 493;
 	};
 	4968C60012A2B8570079533A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -343,7 +389,7 @@
 		ignoreCount = 0;
 		lineNumber = 166;
 		location = 30daylist_iphone;
-		modificationTime = 313264281.304865;
+		modificationTime = 313428929.016073;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
@@ -356,9 +402,9 @@
 	};
 	4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {964, 1404}}";
-			sepNavSelRange = "{2642, 0}";
-			sepNavVisRange = "{1403, 1361}";
+			sepNavIntBoundsRect = "{{0, 0}, {1215, 2938}}";
+			sepNavSelRange = "{1415, 0}";
+			sepNavVisRange = "{945, 594}";
 		};
 	};
 	49C276A712ABFFAC006BE9DC /* PBXTextBookmark */ = {
@@ -380,24 +426,6 @@
 		rType = 0;
 		vrLen = 341;
 		vrLoc = 0;
-	};
-	49C276D412AC00E4006BE9DC /* SingleProductViewController.m:46 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 4968C68212A2C2C10079533A /* SingleProductViewController.m */;
-		functionName = "-tableView:cellForRowAtIndexPath:";
-		hitCount = 1;
-		ignoreCount = 0;
-		lineNumber = 46;
-		location = 30daylist_iphone;
-		modificationTime = 313264289.667063;
-		originalNumberOfMultipleMatches = 1;
-		state = 1;
 	};
 	49E0489C129ADDB10048F841 /* 30daylist_iphone */ = {
 		isa = PBXExecutable;
@@ -444,68 +472,5 @@
 	49E048AE129ADDB90048F841 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	49F230E712AC073F004B86B6 /* ProductsOverviewController.m:120 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 492BE974129B16AD0011657A /* ProductsOverviewController.m */;
-		functionName = "-numberOfSectionsInTableView:";
-		hitCount = 2;
-		ignoreCount = 0;
-		lineNumber = 120;
-		location = 30daylist_iphone;
-		modificationTime = 313264285.626867;
-		originalNumberOfMultipleMatches = 1;
-		state = 1;
-	};
-	49F230E912AC0741004B86B6 /* ProductsOverviewController.m:126 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = 492BE974129B16AD0011657A /* ProductsOverviewController.m */;
-		functionName = "-tableView:numberOfRowsInSection:";
-		hitCount = 1;
-		ignoreCount = 0;
-		lineNumber = 126;
-		location = 30daylist_iphone;
-		modificationTime = 313264286.110085;
-		originalNumberOfMultipleMatches = 1;
-		state = 1;
-	};
-	49F2310712AC08EB004B86B6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 492BE974129B16AD0011657A /* ProductsOverviewController.m */;
-		name = "ProductsOverviewController.m: 10";
-		rLen = 0;
-		rLoc = 196;
-		rType = 0;
-		vrLen = 1004;
-		vrLoc = 4166;
-	};
-	49F2310812AC08EB004B86B6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */;
-		rLen = 0;
-		rLoc = 45;
-		rType = 1;
-	};
-	49F2310E12AC0936004B86B6 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */;
-		name = "SingleProductViewController.m: 82";
-		rLen = 0;
-		rLoc = 2642;
-		rType = 0;
-		vrLen = 1361;
-		vrLoc = 1403;
 	};
 }
