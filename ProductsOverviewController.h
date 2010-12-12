@@ -7,15 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 
 @interface ProductsOverviewController : UITableViewController<NSFetchedResultsControllerDelegate> {
-
 	NSManagedObjectContext *managedObjectContext;
 	NSFetchedResultsController *fetchedResultsController;
+	CLLocationManager *locationManager;
+	CLLocation *currentLocation;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, retain) CLLocation *currentLocation;
 
 @end

@@ -7,12 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CoreLocation/CoreLocation.h>
 
 @interface SingleProductViewController : UITableViewController {
+	CLLocation *currentLocation;
+	NSManagedObjectContext *managedObjectContext;
 	NSManagedObject *product;
+	UITextField *productNameField;
+	UITextField *productPriceField;
+	UITextField *productFoundWhereField;
+	UITextField *productURLField;
 }
 
+@property (nonatomic, retain) CLLocation *currentLocation;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSManagedObject *product;
+@property (nonatomic, readonly) IBOutlet UITextField *productNameField;
+@property (nonatomic, readonly) IBOutlet UITextField *productPriceField;
+@property (nonatomic, readonly) IBOutlet UITextField *productFoundWhereField;
+@property (nonatomic, readonly) IBOutlet UITextField *productURLField;
 
 @end

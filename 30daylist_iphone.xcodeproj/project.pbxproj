@@ -18,6 +18,7 @@
 		492BE975129B16AD0011657A /* ProductsOverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BE974129B16AD0011657A /* ProductsOverviewController.m */; };
 		4968C67F12A2C23B0079533A /* SingleProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C67E12A2C23B0079533A /* SingleProductViewController.xib */; };
 		4968C68312A2C2C10079533A /* SingleProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */; };
+		49A99B3B12B5485700C46DCE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A99B3A12B5485700C46DCE /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4968C67E12A2C23B0079533A /* SingleProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductViewController.xib; sourceTree = "<group>"; };
 		4968C68112A2C2C10079533A /* SingleProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleProductViewController.h; sourceTree = "<group>"; };
 		4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleProductViewController.m; sourceTree = "<group>"; };
+		49A99B3A12B5485700C46DCE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "_0daylist_iphone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +51,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
+				49A99B3B12B5485700C46DCE /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +83,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				49A99B3A12B5485700C46DCE /* CoreLocation.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";

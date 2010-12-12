@@ -9,11 +9,11 @@
 #import "ProductsOverviewController.h"
 #import "SingleProductViewController.h"
 
-
 @implementation ProductsOverviewController
 
 @synthesize managedObjectContext;
-
+@synthesize locationManager;
+@synthesize currentLocation;
 
 - (id)initWithFrame:(CGRect)frame {
     
@@ -45,13 +45,18 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
+/*	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
 	
 	SingleProductViewController *singleProductViewController = [[SingleProductViewController alloc] initWithNibName:@"SingleProductViewController" bundle:nil];
 	singleProductViewController.product = product;
 	[self.navigationController pushViewController:singleProductViewController animated:YES];
 	
-	[singleProductViewController release];
+	[singleProductViewController release];*/
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+	self.currentLocation = newLocation;
 }
 
 
@@ -61,44 +66,24 @@
 	
 	SingleProductViewController *singleProductViewController = [[SingleProductViewController alloc] initWithNibName:@"SingleProductViewController" bundle:nil];
 	singleProductViewController.product = newProduct;
+	singleProductViewController.currentLocation = self.currentLocation;
 	[self.navigationController pushViewController:singleProductViewController animated:YES];
 	
 	[singleProductViewController release];
 }
 
 
-/*- (IBAction)addProduct {
-	NSEntityDescription *productDescription = [[fetchedResultsController fetchRequest] entity];
-	NSManagedObject *newProduct = [NSEntityDescription insertNewObjectForEntityForName:[productDescription name] inManagedObjectContext:managedObjectContext];
-	[newProduct setValue:@"iPad" forKey:@"name"];
-	[newProduct setValue:[NSNumber numberWithFloat:699.00] forKey:@"price"];
-	[newProduct setValue:@"Apple" forKey:@"found_where"];
-	[newProduct setValue:@"http://www.apple.de/ipad/" forKey:@"found_url"];
-	[newProduct setValue:@"123;123" forKey:@"found_latlong"];
-	[newProduct setValue:[NSDate date] forKey:@"found_date"];
-	
-	NSError *error;
-	if (![managedObjectContext save:&error]) {
-		NSLog(@"Fehler beim Speichern des Produkts");
-	}
-	if (![fetchedResultsController performFetch:&error]) {
-		NSLog(@"Fehler beim Laden");
-		return;
-	}
-	
-	[self.tableView reloadData];
-}*/
-
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAddProductForm)];
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f];
 	self.navigationItem.rightBarButtonItem = addButton;
 
 	[addButton release];
+
+	[self startStandardUpdates];
 }
 
 
@@ -144,21 +129,38 @@
 	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
 	
 	cell.textLabel.text = [product valueForKey:@"name"];
-//	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	
 	NSDateFormatter *dateFormatter = [NSDateFormatter new];
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	NSTimeInterval timeInterval = [[product valueForKey:@"found_date"] timeIntervalSinceNow];
 	NSInteger daysUntil = 30 + ceil(timeInterval / 86400);
 	
-	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d", nil), [product valueForKey:@"price"], [product valueForKey:@"found_where"], daysUntil];
+	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+
+	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d | %@ | %@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"], daysUntil, [product valueForKey:@"found_latitude"], [product valueForKey:@"found_longitude"], [product valueForKey:@"found_url"]];
 	
 //	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 //	cell.accessoryType = UITableViewCellAccessoryCheckmark;
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	[dateFormatter release];
 	return cell;
+}
+
+
+- (void)startStandardUpdates {
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == locationManager)
+        locationManager = [[CLLocationManager alloc] init];
+	
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+	
+    // Set a movement threshold for new events.
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+	
+    [locationManager startUpdatingLocation];
 }
 
 

@@ -14,10 +14,17 @@ static const NSInteger kDirectInputsSection = 0;
 static const NSInteger kProductNameRow = 0;
 static const NSInteger kProductPriceRow = 1;
 static const NSInteger kProductFoundWhereRow = 2;
+static const NSInteger kProductURLRow = 3;
 
 @implementation SingleProductViewController
 
+@synthesize currentLocation;
+@synthesize managedObjectContext;
 @synthesize product;
+@synthesize productNameField;
+@synthesize productPriceField;
+@synthesize productFoundWhereField;
+@synthesize productURLField;
 
 - (id)initWithFrame:(CGRect)frame {
     
@@ -49,7 +56,7 @@ static const NSInteger kProductFoundWhereRow = 2;
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;
 {
 	NSInteger nextTag = textField.tag + 1;
-	if (nextTag <= kProductFoundWhereRow) {
+	if (nextTag <= kProductURLRow) {
 		UIResponder* nextResponder = [[self.tableView.visibleCells objectAtIndex:nextTag] viewWithTag:nextTag];
 		if (nextResponder) {
 			[nextResponder becomeFirstResponder];
@@ -64,26 +71,43 @@ static const NSInteger kProductFoundWhereRow = 2;
 
 - (IBAction)saveProduct
 {
-/*	if ([[[[self.tableView.visibleCells objectAtIndex:0] valueForKey:@"textField"] text] length])
-	{
-		if (self.tipprunde == nil)
-		{
-			NSManagedObject *newTipprunde = [NSEntityDescription insertNewObjectForEntityForName:@"Tipprunde" inManagedObjectContext:managedObjectContext];
-			[newTipprunde setValue:[[[[[self.tableView.visibleCells objectAtIndex:0] valueForKey:@"textField"] text] lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"kurzname"];
-			[newTipprunde setValue:[[[[self.tableView.visibleCells objectAtIndex:1] valueForKey:@"textField"] text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"tippername"];
-			[newTipprunde setValue:[[[[self.tableView.visibleCells objectAtIndex:2] valueForKey:@"textField"] text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"passwort"];
-		} else {
-			[self.tipprunde setValue:[[[[[self.tableView.visibleCells objectAtIndex:0] valueForKey:@"textField"] text] lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"kurzname"];
-			[self.tipprunde setValue:[[[[self.tableView.visibleCells objectAtIndex:1] valueForKey:@"textField"] text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"tippername"];
-			[self.tipprunde setValue:[[[[self.tableView.visibleCells objectAtIndex:2] valueForKey:@"textField"] text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"passwort"];
-		}
-		NSError *error;
-		if (![managedObjectContext save:&error])
-		{
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-			NSLog(@"Fehler bein Speichern einer Tipprunde: ");
-		}
-	}*/
+	NSNumberFormatter *priceFormatter = [NSNumberFormatter alloc];
+	[priceFormatter init];
+	NSNumber *price = [priceFormatter numberFromString:[productPriceField text]];
+	NSDate *now = [[NSDate alloc] init];
+	
+	[product setValue:[productNameField text] forKey:@"name"];
+	[product setValue:price forKey:@"price"];
+	[product setValue:[productFoundWhereField text] forKey:@"found_where"];
+	[product setValue:[productURLField text] forKey:@"found_url"];
+	
+	if (currentLocation != nil) {
+		[product setValue:[NSNumber numberWithFloat:currentLocation.coordinate.latitude] forKey:@"found_latitude"];
+		[product setValue:[NSNumber numberWithFloat:currentLocation.coordinate.longitude] forKey:@"found_longitude"];
+	} else {
+		[product setValue:0 forKey:@"found_latitude"];
+		[product setValue:0 forKey:@"found_longitude"];
+	}
+	
+	[product setValue:now forKey:@"found_date"];
+	
+	NSError *error;
+	if (![managedObjectContext save:&error]) {
+		NSLog(@"Fehler beim Speichern des Produkts");
+	} else {
+		NSLog(@"We cool? Then schedule a notification");
+	}
+
+	UILocalNotification *notification = [[UILocalNotification alloc] init];
+	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:2592000]; // 30 days
+//	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:10];
+	[notification setFireDate:justAMinute];
+	[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [productNameField text]]];
+	[notification setAlertAction:@"Review"];
+	[notification setSoundName:UILocalNotificationDefaultSoundName];
+	[[UIApplication sharedApplication] scheduleLocalNotification:notification];
+	[notification release];
+	
 	[self.navigationController popViewControllerAnimated:TRUE];
 }
 
@@ -96,46 +120,86 @@ static const NSInteger kProductFoundWhereRow = 2;
 		static NSString *TextCellIdentifier = @"TextCell";
 
 		cell = [tableView dequeueReusableCellWithIdentifier:TextCellIdentifier];
-		UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
-		textField.adjustsFontSizeToFitWidth = YES;
-		textField.textColor = [UIColor blackColor];
-		textField.backgroundColor = [UIColor whiteColor];
 		
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TextCellIdentifier] autorelease];
 		}
 		
 		if (indexPath.row == kProductNameRow) {
-			textField.keyboardType = UIKeyboardTypeAlphabet;
-			[textField setPlaceholder:NSLocalizedString(@"iPhone", nil)];
-			[textField setReturnKeyType:UIReturnKeyNext];
-			[textField setText:[product valueForKey:@"name"]];
-			[textField setTag:kProductNameRow];
+			productNameField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
+			productNameField.textColor = [UIColor blackColor];
+			productNameField.backgroundColor = [UIColor whiteColor];
+
+			productNameField.keyboardType = UIKeyboardTypeAlphabet;
+			productNameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+			productNameField.clearButtonMode = UITextFieldViewModeWhileEditing;
+			[productNameField setPlaceholder:NSLocalizedString(@"Awesome App", nil)];
+			[productNameField setReturnKeyType:UIReturnKeyNext];
+			[productNameField setText:[product valueForKey:@"name"]];
+			[productNameField setTag:kProductNameRow];
 			cell.textLabel.text = NSLocalizedString(@"Was?", nil);
+
+			[productNameField setDelegate:self];
+			[productNameField setEnabled: YES];
+			[cell addSubview:productNameField];
+			[productNameField release];
 		} else if (indexPath.row == kProductPriceRow) {
-			textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-			[textField setPlaceholder:NSLocalizedString(@"499.00", nil)];
-			[textField setReturnKeyType:UIReturnKeyNext];
-			[textField setTag:kProductPriceRow];
+			productPriceField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
+			productPriceField.textColor = [UIColor blackColor];
+			productPriceField.backgroundColor = [UIColor whiteColor];
+
+			productPriceField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+			productPriceField.clearButtonMode = UITextFieldViewModeWhileEditing;
+			[productPriceField setPlaceholder:NSLocalizedString(@"0.99", nil)];
+			[productPriceField setReturnKeyType:UIReturnKeyNext];
+			[productPriceField setTag:kProductPriceRow];
 			if ([product valueForKey:@"price"] == nil) {
-				[textField setText:@""];
+				[productPriceField setText:@""];
 			} else {
-				[textField setText:[NSString stringWithFormat:@"%@", [product valueForKey:@"price"]]];
+				[productPriceField setText:[NSString stringWithFormat:@"%@", [product valueForKey:@"price"]]];
 			}
 			cell.textLabel.text = NSLocalizedString(@"Wie teuer?", nil);
-		} else if (indexPath.row == kProductFoundWhereRow) {
-			textField.keyboardType = UIKeyboardTypeAlphabet;
-			[textField setPlaceholder:NSLocalizedString(@"Gefunden bei", nil)];
-			[textField setReturnKeyType:UIReturnKeyDone];
-			[textField setText:[product valueForKey:@"found_where"]];
-			[textField setTag:kProductFoundWhereRow];
-			cell.textLabel.text = NSLocalizedString(@"Wo?", nil);
-		}
 
-		[textField setDelegate:self];
-		[textField setEnabled: YES];
-		[cell addSubview:textField];
-		[textField release];
+			[productPriceField setDelegate:self];
+			[productPriceField setEnabled: YES];
+			[cell addSubview:productPriceField];
+			[productPriceField release];
+		} else if (indexPath.row == kProductFoundWhereRow) {
+			productFoundWhereField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
+			productFoundWhereField.textColor = [UIColor blackColor];
+			productFoundWhereField.backgroundColor = [UIColor whiteColor];
+			
+			productFoundWhereField.keyboardType = UIKeyboardTypeAlphabet;
+			productFoundWhereField.clearButtonMode = UITextFieldViewModeWhileEditing;
+			[productFoundWhereField setPlaceholder:NSLocalizedString(@"Gefunden bei", nil)];
+			[productFoundWhereField setReturnKeyType:UIReturnKeyNext];
+			[productFoundWhereField setText:[product valueForKey:@"found_where"]];
+			[productFoundWhereField setTag:kProductFoundWhereRow];
+			cell.textLabel.text = NSLocalizedString(@"Wo?", nil);
+			
+			[productFoundWhereField setDelegate:self];
+			[productFoundWhereField setEnabled: YES];
+			[cell addSubview:productFoundWhereField];
+			[productFoundWhereField release];
+		} else if (indexPath.row == kProductURLRow) {
+			productURLField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
+			productURLField.textColor = [UIColor blackColor];
+			productURLField.backgroundColor = [UIColor whiteColor];
+			
+			[productURLField setKeyboardType:UIKeyboardTypeURL];
+			productURLField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+			productURLField.clearButtonMode = UITextFieldViewModeWhileEditing;
+			[productURLField setPlaceholder:NSLocalizedString(@"www.product.com", nil)];
+			[productURLField setReturnKeyType:UIReturnKeyDone];
+			[productURLField setText:[product valueForKey:@"found_url"]];
+			[productURLField setTag:kProductURLRow];
+			cell.textLabel.text = NSLocalizedString(@"URL", nil);
+			
+			[productURLField setDelegate:self];
+			[productURLField setEnabled: YES];
+			[cell addSubview:productURLField];
+			[productURLField release];
+		}
 	}
 	
 	return cell;
@@ -151,7 +215,7 @@ static const NSInteger kProductFoundWhereRow = 2;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger rowCount = 0;
 	if(section == kDirectInputsSection)
-		rowCount = 3;
+		rowCount = 4;
 	return rowCount;
 }
 
