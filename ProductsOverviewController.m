@@ -8,6 +8,7 @@
 
 #import "ProductsOverviewController.h"
 #import "SingleProductViewController.h"
+#import "TDBadgedCell.h"
 
 @implementation ProductsOverviewController
 
@@ -121,9 +122,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Cell";
 	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	TDBadgedCell *cell = (TDBadgedCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[[TDBadgedCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 	}
 	
 	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
@@ -138,7 +139,14 @@
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 
 //	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d | %@ | %@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"], daysUntil, [product valueForKey:@"found_latitude"], [product valueForKey:@"found_longitude"], [product valueForKey:@"found_url"]];
-	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"], daysUntil];
+	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"]];
+	
+	[cell setBadgeString:[NSString stringWithFormat:@"%d", daysUntil]];
+	if (daysUntil > 0) {
+		[cell setBadgeColor:[UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f]]; // green
+	} else {
+		[cell setBadgeColor:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]]; // red
+	}
 	
 //	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 //	cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -177,13 +185,13 @@
 		}
 		// cancel all local notifications
 		[[UIApplication sharedApplication] cancelAllLocalNotifications];
-		// create new local notifications for remaining items
 		
 		if (![fetchedResultsController performFetch:&error]) {
 			NSLog(@"Fehler beim Laden");
 			return;
 		}
 		
+		// create new local notifications for remaining items
 		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
 		[fetchRequest setEntity:entity];
