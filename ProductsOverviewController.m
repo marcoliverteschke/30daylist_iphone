@@ -137,7 +137,8 @@
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 
-	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d | %@ | %@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"], daysUntil, [product valueForKey:@"found_latitude"], [product valueForKey:@"found_longitude"], [product valueForKey:@"found_url"]];
+//	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d | %@ | %@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"], daysUntil, [product valueForKey:@"found_latitude"], [product valueForKey:@"found_longitude"], [product valueForKey:@"found_url"]];
+	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"], daysUntil];
 	
 //	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 //	cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -174,10 +175,31 @@
 			NSLog(@"Fehler beim Löschen");
 			return;
 		}
+		// cancel all local notifications
+		[[UIApplication sharedApplication] cancelAllLocalNotifications];
+		// create new local notifications for remaining items
+		
 		if (![fetchedResultsController performFetch:&error]) {
 			NSLog(@"Fehler beim Laden");
 			return;
 		}
+		
+		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
+		[fetchRequest setEntity:entity];
+		NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+		for (NSManagedObject *item in items) {
+			NSDate *storedDate = [item valueForKey:@"found_date"];
+			NSDate *inTheFuture = [storedDate dateByAddingTimeInterval:2592000];
+//			NSDate *inTheFuture = [storedDate dateByAddingTimeInterval:60];
+			UILocalNotification *notification = [[UILocalNotification alloc] init];
+			[notification setFireDate:inTheFuture];
+			[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [item valueForKey:@"name"]]];
+			[notification setAlertAction:@"Review"];
+			[notification setSoundName:UILocalNotificationDefaultSoundName];
+			[[UIApplication sharedApplication] scheduleLocalNotification:notification];
+			[notification release];
+		}  		
 		
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
 		[tableView reloadData];
