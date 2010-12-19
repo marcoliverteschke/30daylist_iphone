@@ -100,7 +100,7 @@ static const NSInteger kProductURLRow = 3;
 
 	UILocalNotification *notification = [[UILocalNotification alloc] init];
 	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:2592000]; // 30 days
-//	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:10];
+//	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:60];
 	[notification setFireDate:justAMinute];
 	[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [productNameField text]]];
 	[notification setAlertAction:@"Review"];
@@ -124,6 +124,8 @@ static const NSInteger kProductURLRow = 3;
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TextCellIdentifier] autorelease];
 		}
+		
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		
 		if (indexPath.row == kProductNameRow) {
 			productNameField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
