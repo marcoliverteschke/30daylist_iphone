@@ -35,14 +35,14 @@
 		28D801B30F44B63D00FB423F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* _0daylist_iphone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _0daylist_iphone_Prefix.pch; sourceTree = "<group>"; };
-		490235F012BE8BE600329F60 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
-		490235F112BE8BE600329F60 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
+		490235F012BE8BE600329F60 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = ../TDBadgedCell.h; sourceTree = "<group>"; };
+		490235F112BE8BE600329F60 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBadgedCell.m; path = ../TDBadgedCell.m; sourceTree = "<group>"; };
 		4902366812BE987B00329F60 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		492BE973129B16AD0011657A /* ProductsOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsOverviewController.h; sourceTree = "<group>"; };
-		492BE974129B16AD0011657A /* ProductsOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsOverviewController.m; sourceTree = "<group>"; };
+		492BE973129B16AD0011657A /* ProductsOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductsOverviewController.h; path = ../ProductsOverviewController.h; sourceTree = "<group>"; };
+		492BE974129B16AD0011657A /* ProductsOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductsOverviewController.m; path = ../ProductsOverviewController.m; sourceTree = "<group>"; };
 		4968C67E12A2C23B0079533A /* SingleProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductViewController.xib; sourceTree = "<group>"; };
-		4968C68112A2C2C10079533A /* SingleProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleProductViewController.h; sourceTree = "<group>"; };
-		4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleProductViewController.m; sourceTree = "<group>"; };
+		4968C68112A2C2C10079533A /* SingleProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleProductViewController.h; path = ../SingleProductViewController.h; sourceTree = "<group>"; };
+		4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleProductViewController.m; path = ../SingleProductViewController.m; sourceTree = "<group>"; };
 		49A99B3A12B5485700C46DCE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "_0daylist_iphone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +66,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				490235F012BE8BE600329F60 /* TDBadgedCell.h */,
+				490235F112BE8BE600329F60 /* TDBadgedCell.m */,
+				4968C68112A2C2C10079533A /* SingleProductViewController.h */,
+				4968C68212A2C2C10079533A /* SingleProductViewController.m */,
+				492BE973129B16AD0011657A /* ProductsOverviewController.h */,
+				492BE974129B16AD0011657A /* ProductsOverviewController.m */,
 				1D3623240D0F684500981E51 /* _0daylist_iphoneAppDelegate.h */,
 				1D3623250D0F684500981E51 /* _0daylist_iphoneAppDelegate.m */,
 			);
@@ -106,13 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				4902366812BE987B00329F60 /* icon.png */,
-				490235F012BE8BE600329F60 /* TDBadgedCell.h */,
-				490235F112BE8BE600329F60 /* TDBadgedCell.m */,
 				4968C67E12A2C23B0079533A /* SingleProductViewController.xib */,
-				4968C68112A2C2C10079533A /* SingleProductViewController.h */,
-				4968C68212A2C2C10079533A /* SingleProductViewController.m */,
-				492BE973129B16AD0011657A /* ProductsOverviewController.h */,
-				492BE974129B16AD0011657A /* ProductsOverviewController.m */,
 				2819305F112F816700ECF9B4 /* _0daylist_iphone.xcdatamodeld */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */,

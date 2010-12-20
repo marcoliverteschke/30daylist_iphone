@@ -30,5 +30,7 @@
 	<array>
 		<string>location-services</string>
 	</array>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 </dict>
 </plist>
