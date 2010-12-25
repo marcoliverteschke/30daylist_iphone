@@ -9,6 +9,8 @@
 #import "ProductsOverviewController.h"
 #import "SingleProductViewController.h"
 #import "TDBadgedCell.h"
+#import "WebViewController.h"
+#import "MapViewController.h"
 
 @implementation ProductsOverviewController
 
@@ -53,7 +55,37 @@
 	[self.navigationController pushViewController:singleProductViewController animated:YES];
 	
 	[singleProductViewController release];*/
+	
+/*
+ NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
+	UIWebView *webView = [[UIWebView alloc] init];
+	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.marcmachttheater.de/"]]];
+	[tableView addSubview:webView];*/
+	
+	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
+	if ([[product valueForKey:@"found_url"] length] > 0) {
+		[self showInBrowser:product];
+	}
+//	[self showOnMap:product];
+	
 }
+
+
+- (void)showOnMap:(NSManagedObject *)product {
+	MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapView" bundle:nil];
+	mapViewController.product = product;
+	[self.navigationController pushViewController:mapViewController animated:YES];
+	[mapViewController release];
+}
+
+
+- (void)showInBrowser:(NSManagedObject *)product {
+	WebViewController *webViewController = [[WebViewController alloc] initWithNibName:@"WebView" bundle:nil];
+	webViewController.product = product;
+	[self.navigationController pushViewController:webViewController animated:YES];
+	[webViewController release];
+}
+
 
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -97,6 +129,8 @@
 		return;
 	}
 	
+	[self.tableView setBackgroundColor:[UIColor colorWithRed:0.99 green:0.99 blue:0.99 alpha:1]];
+	
 	[self.tableView reloadData];
 }
 
@@ -130,6 +164,7 @@
 	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
 	
 	cell.textLabel.text = [product valueForKey:@"name"];
+	cell.textLabel.backgroundColor = [UIColor clearColor];
 	NSDateFormatter *dateFormatter = [NSDateFormatter new];
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	NSTimeInterval timeInterval = [[product valueForKey:@"found_date"] timeIntervalSinceNow];
@@ -138,20 +173,30 @@
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 
-//	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@ | %d | %@ | %@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"], daysUntil, [product valueForKey:@"found_latitude"], [product valueForKey:@"found_longitude"], [product valueForKey:@"found_url"]];
 	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"]];
+	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
 	
 	[cell setBadgeString:[NSString stringWithFormat:@"%d", daysUntil]];
 	if (daysUntil > 0) {
 		[cell setBadgeColor:[UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f]]; // green
+		[cell setBadgeColorHighlighted:[UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f]];
 	} else {
 		[cell setBadgeColor:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]]; // red
+		[cell setBadgeColorHighlighted:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]];
 	}
 	
-//	cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-//	cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	if ([[product valueForKey:@"found_url"] length] > 0) {
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	}
 	
+	NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/cell_bg.png"];
+	UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+	[cell setBackgroundView:imageView];
+
 	[dateFormatter release];
 	return cell;
 }

@@ -15,11 +15,20 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
+		49002DC812C63FC70011E5B4 /* cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49002DC712C63FC70011E5B4 /* cell_bg.png */; };
 		490235F212BE8BE600329F60 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 490235F112BE8BE600329F60 /* TDBadgedCell.m */; };
 		4902366912BE987B00329F60 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4902366812BE987B00329F60 /* icon.png */; };
 		492BE975129B16AD0011657A /* ProductsOverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BE974129B16AD0011657A /* ProductsOverviewController.m */; };
+		4939162812C4B2D100C34228 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4939162712C4B2D100C34228 /* MapKit.framework */; };
+		4939164D12C4B2E300C34228 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939164C12C4B2E300C34228 /* MapView.xib */; };
+		4939165112C4B31900C34228 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939165012C4B31900C34228 /* MapViewController.m */; };
 		4968C67F12A2C23B0079533A /* SingleProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C67E12A2C23B0079533A /* SingleProductViewController.xib */; };
 		4968C68312A2C2C10079533A /* SingleProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */; };
+		4980787C12C4E23A00B671F5 /* arrowleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787912C4E23A00B671F5 /* arrowleft.png */; };
+		4980787D12C4E23A00B671F5 /* arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787A12C4E23A00B671F5 /* arrowright.png */; };
+		4980787E12C4E23A00B671F5 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787B12C4E23A00B671F5 /* reload.png */; };
+		49A1ECA012C4833C00D41722 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A1EC9F12C4833C00D41722 /* WebViewController.m */; };
+		49A1ECB212C4848B00D41722 /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A1ECB112C4848B00D41722 /* WebView.xib */; };
 		49A99B3B12B5485700C46DCE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A99B3A12B5485700C46DCE /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,14 +44,25 @@
 		28D801B30F44B63D00FB423F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* _0daylist_iphone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _0daylist_iphone_Prefix.pch; sourceTree = "<group>"; };
+		49002DC712C63FC70011E5B4 /* cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_bg.png; sourceTree = "<group>"; };
 		490235F012BE8BE600329F60 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = ../TDBadgedCell.h; sourceTree = "<group>"; };
 		490235F112BE8BE600329F60 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBadgedCell.m; path = ../TDBadgedCell.m; sourceTree = "<group>"; };
 		4902366812BE987B00329F60 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		492BE973129B16AD0011657A /* ProductsOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductsOverviewController.h; path = ../ProductsOverviewController.h; sourceTree = "<group>"; };
 		492BE974129B16AD0011657A /* ProductsOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductsOverviewController.m; path = ../ProductsOverviewController.m; sourceTree = "<group>"; };
+		4939162712C4B2D100C34228 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4939164C12C4B2E300C34228 /* MapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
+		4939164F12C4B31900C34228 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		4939165012C4B31900C34228 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		4968C67E12A2C23B0079533A /* SingleProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductViewController.xib; sourceTree = "<group>"; };
 		4968C68112A2C2C10079533A /* SingleProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleProductViewController.h; path = ../SingleProductViewController.h; sourceTree = "<group>"; };
 		4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleProductViewController.m; path = ../SingleProductViewController.m; sourceTree = "<group>"; };
+		4980787912C4E23A00B671F5 /* arrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowleft.png; sourceTree = "<group>"; };
+		4980787A12C4E23A00B671F5 /* arrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowright.png; sourceTree = "<group>"; };
+		4980787B12C4E23A00B671F5 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
+		49A1EC9E12C4833C00D41722 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		49A1EC9F12C4833C00D41722 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		49A1ECB112C4848B00D41722 /* WebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = "<group>"; };
 		49A99B3A12B5485700C46DCE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "_0daylist_iphone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +77,7 @@
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */,
 				49A99B3B12B5485700C46DCE /* CoreLocation.framework in Frameworks */,
+				4939162812C4B2D100C34228 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +95,10 @@
 				492BE974129B16AD0011657A /* ProductsOverviewController.m */,
 				1D3623240D0F684500981E51 /* _0daylist_iphoneAppDelegate.h */,
 				1D3623250D0F684500981E51 /* _0daylist_iphoneAppDelegate.m */,
+				49A1EC9E12C4833C00D41722 /* WebViewController.h */,
+				49A1EC9F12C4833C00D41722 /* WebViewController.m */,
+				4939164F12C4B31900C34228 /* MapViewController.h */,
+				4939165012C4B31900C34228 /* MapViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -94,7 +119,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				49A99B3A12B5485700C46DCE /* CoreLocation.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -111,11 +135,15 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49002DC712C63FC70011E5B4 /* cell_bg.png */,
+				4980787812C4E23A00B671F5 /* icons */,
 				4902366812BE987B00329F60 /* icon.png */,
 				4968C67E12A2C23B0079533A /* SingleProductViewController.xib */,
 				2819305F112F816700ECF9B4 /* _0daylist_iphone.xcdatamodeld */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */,
+				49A1ECB112C4848B00D41722 /* WebView.xib */,
+				4939164C12C4B2E300C34228 /* MapView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -123,12 +151,24 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49A99B3A12B5485700C46DCE /* CoreLocation.framework */,
+				4939162712C4B2D100C34228 /* MapKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				28D801B30F44B63D00FB423F /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4980787812C4E23A00B671F5 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				4980787912C4E23A00B671F5 /* arrowleft.png */,
+				4980787A12C4E23A00B671F5 /* arrowright.png */,
+				4980787B12C4E23A00B671F5 /* reload.png */,
+			);
+			path = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +223,12 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				4968C67F12A2C23B0079533A /* SingleProductViewController.xib in Resources */,
 				4902366912BE987B00329F60 /* icon.png in Resources */,
+				49A1ECB212C4848B00D41722 /* WebView.xib in Resources */,
+				4939164D12C4B2E300C34228 /* MapView.xib in Resources */,
+				4980787C12C4E23A00B671F5 /* arrowleft.png in Resources */,
+				4980787D12C4E23A00B671F5 /* arrowright.png in Resources */,
+				4980787E12C4E23A00B671F5 /* reload.png in Resources */,
+				49002DC812C63FC70011E5B4 /* cell_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +245,8 @@
 				492BE975129B16AD0011657A /* ProductsOverviewController.m in Sources */,
 				4968C68312A2C2C10079533A /* SingleProductViewController.m in Sources */,
 				490235F212BE8BE600329F60 /* TDBadgedCell.m in Sources */,
+				49A1ECA012C4833C00D41722 /* WebViewController.m in Sources */,
+				4939165112C4B31900C34228 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface ProductsOverviewController : UITableViewController<NSFetchedResultsControllerDelegate> {
+@interface ProductsOverviewController : UITableViewController<NSFetchedResultsControllerDelegate,UIActionSheetDelegate> {
 	NSManagedObjectContext *managedObjectContext;
 	NSFetchedResultsController *fetchedResultsController;
 	CLLocationManager *locationManager;
