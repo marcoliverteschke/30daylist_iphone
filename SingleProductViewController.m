@@ -25,6 +25,7 @@ static const NSInteger kProductURLRow = 3;
 @synthesize productPriceField;
 @synthesize productFoundWhereField;
 @synthesize productURLField;
+@synthesize entityDescription;
 
 - (id)initWithFrame:(CGRect)frame {
     
@@ -40,7 +41,7 @@ static const NSInteger kProductURLRow = 3;
 	[super viewDidLoad];
 	
 	self.title = NSLocalizedString(@"Neues Produkt", nil);
-
+	
 	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveProduct)];
 	self.navigationItem.rightBarButtonItem = doneButton;
 	[doneButton release];
@@ -75,6 +76,8 @@ static const NSInteger kProductURLRow = 3;
 	[priceFormatter init];
 	NSNumber *price = [priceFormatter numberFromString:[productPriceField text]];
 	NSDate *now = [[NSDate alloc] init];
+	
+	self.product = [NSEntityDescription insertNewObjectForEntityForName:[entityDescription name] inManagedObjectContext:managedObjectContext];
 	
 	[product setValue:[productNameField text] forKey:@"name"];
 	[product setValue:price forKey:@"price"];

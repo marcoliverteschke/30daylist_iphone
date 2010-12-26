@@ -7,6 +7,8 @@
 //
 
 #import "MapViewController.h"
+#import "MKMapView+ZoomLevel.h"
+#import "SSMapAnnotation.h"
 
 
 @implementation MapViewController
@@ -35,21 +37,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	
 	CLLocationCoordinate2D coordinate;
 	coordinate.latitude = (CLLocationDegrees)[[product valueForKey:@"found_latitude"] doubleValue];
 	coordinate.longitude = (CLLocationDegrees)[[product valueForKey:@"found_longitude"] doubleValue];
 	
-//	MKAnnotation found_it = [[MKAnnotation alloc] init];
-//	found_it.title = [product valueForKey:@"title"];
-//	[found_it setCoordinate:coordinate];
+	[self.mapView setCenterCoordinate:coordinate zoomLevel:14 animated:YES];
+	[self.mapView setMapType:MKMapTypeHybrid];
 	
-//	[mapView addAnnotation:found_it];
-	
-//	= [[CLLocationCoordinate2D alloc] initWithLatitude: longitude:];
-	[mapView setCenterCoordinate:coordinate animated:YES];
-	
-//	[mapView ]
+	SSMapAnnotation *annotation = [[SSMapAnnotation alloc] initWithCoordinate:coordinate title:[product valueForKey:@"name"] subtitle: @"this is where you found it"];
+	[self.mapView addAnnotation:annotation];
+	[self.mapView selectAnnotation:annotation animated:YES];
 }
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.

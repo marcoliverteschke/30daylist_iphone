@@ -15,11 +15,13 @@
 	NSFetchedResultsController *fetchedResultsController;
 	CLLocationManager *locationManager;
 	CLLocation *currentLocation;
+	NSManagedObject *currentProduct;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *currentLocation;
+@property (nonatomic, retain) NSManagedObject *currentProduct;
 
 @end

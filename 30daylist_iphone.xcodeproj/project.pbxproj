@@ -22,8 +22,12 @@
 		4939162812C4B2D100C34228 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4939162712C4B2D100C34228 /* MapKit.framework */; };
 		4939164D12C4B2E300C34228 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939164C12C4B2E300C34228 /* MapView.xib */; };
 		4939165112C4B31900C34228 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939165012C4B31900C34228 /* MapViewController.m */; };
+		4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */; };
+		4954C92A12C77D53009A7F36 /* WLSimpleMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C92912C77D53009A7F36 /* WLSimpleMapAnnotation.m */; };
+		4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */; };
 		4968C67F12A2C23B0079533A /* SingleProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C67E12A2C23B0079533A /* SingleProductViewController.xib */; };
 		4968C68312A2C2C10079533A /* SingleProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */; };
+		49783E4912C74EBD0074CEA5 /* table_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49783E4812C74EBD0074CEA5 /* table_bg.png */; };
 		4980787C12C4E23A00B671F5 /* arrowleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787912C4E23A00B671F5 /* arrowleft.png */; };
 		4980787D12C4E23A00B671F5 /* arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787A12C4E23A00B671F5 /* arrowright.png */; };
 		4980787E12C4E23A00B671F5 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787B12C4E23A00B671F5 /* reload.png */; };
@@ -54,9 +58,16 @@
 		4939164C12C4B2E300C34228 /* MapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
 		4939164F12C4B31900C34228 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		4939165012C4B31900C34228 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		4954C90412C77A92009A7F36 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		4954C92812C77D53009A7F36 /* WLSimpleMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSimpleMapAnnotation.h; sourceTree = "<group>"; };
+		4954C92912C77D53009A7F36 /* WLSimpleMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSimpleMapAnnotation.m; sourceTree = "<group>"; };
+		4954C94412C77E9C009A7F36 /* SSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMapAnnotation.h; sourceTree = "<group>"; };
+		4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMapAnnotation.m; sourceTree = "<group>"; };
 		4968C67E12A2C23B0079533A /* SingleProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductViewController.xib; sourceTree = "<group>"; };
 		4968C68112A2C2C10079533A /* SingleProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleProductViewController.h; path = ../SingleProductViewController.h; sourceTree = "<group>"; };
 		4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleProductViewController.m; path = ../SingleProductViewController.m; sourceTree = "<group>"; };
+		49783E4812C74EBD0074CEA5 /* table_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_bg.png; sourceTree = "<group>"; };
 		4980787912C4E23A00B671F5 /* arrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowleft.png; sourceTree = "<group>"; };
 		4980787A12C4E23A00B671F5 /* arrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowright.png; sourceTree = "<group>"; };
 		4980787B12C4E23A00B671F5 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
@@ -87,6 +98,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4954C90412C77A92009A7F36 /* MKMapView+ZoomLevel.h */,
+				4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */,
 				490235F012BE8BE600329F60 /* TDBadgedCell.h */,
 				490235F112BE8BE600329F60 /* TDBadgedCell.m */,
 				4968C68112A2C2C10079533A /* SingleProductViewController.h */,
@@ -99,6 +112,10 @@
 				49A1EC9F12C4833C00D41722 /* WebViewController.m */,
 				4939164F12C4B31900C34228 /* MapViewController.h */,
 				4939165012C4B31900C34228 /* MapViewController.m */,
+				4954C92812C77D53009A7F36 /* WLSimpleMapAnnotation.h */,
+				4954C92912C77D53009A7F36 /* WLSimpleMapAnnotation.m */,
+				4954C94412C77E9C009A7F36 /* SSMapAnnotation.h */,
+				4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -135,6 +152,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49783E4812C74EBD0074CEA5 /* table_bg.png */,
 				49002DC712C63FC70011E5B4 /* cell_bg.png */,
 				4980787812C4E23A00B671F5 /* icons */,
 				4902366812BE987B00329F60 /* icon.png */,
@@ -229,6 +247,7 @@
 				4980787D12C4E23A00B671F5 /* arrowright.png in Resources */,
 				4980787E12C4E23A00B671F5 /* reload.png in Resources */,
 				49002DC812C63FC70011E5B4 /* cell_bg.png in Resources */,
+				49783E4912C74EBD0074CEA5 /* table_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +266,9 @@
 				490235F212BE8BE600329F60 /* TDBadgedCell.m in Sources */,
 				49A1ECA012C4833C00D41722 /* WebViewController.m in Sources */,
 				4939165112C4B31900C34228 /* MapViewController.m in Sources */,
+				4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */,
+				4954C92A12C77D53009A7F36 /* WLSimpleMapAnnotation.m in Sources */,
+				4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

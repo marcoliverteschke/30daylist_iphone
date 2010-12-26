@@ -13,6 +13,7 @@
 	CLLocation *currentLocation;
 	NSManagedObjectContext *managedObjectContext;
 	NSManagedObject *product;
+	NSEntityDescription *entityDescription;
 	UITextField *productNameField;
 	UITextField *productPriceField;
 	UITextField *productFoundWhereField;
@@ -22,6 +23,7 @@
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSManagedObject *product;
+@property (nonatomic, retain) NSEntityDescription *entityDescription;
 @property (nonatomic, readonly) IBOutlet UITextField *productNameField;
 @property (nonatomic, readonly) IBOutlet UITextField *productPriceField;
 @property (nonatomic, readonly) IBOutlet UITextField *productFoundWhereField;

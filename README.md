@@ -27,3 +27,5 @@ The item will be on your list for 30 days. On day 30 you will get a reminder to 
 
 * TDBadgedCell by Tim Davies (https://github.com/tmdvs/TDBadgedCell/) released under CCPL
 * Comic Jens by Jens Kutilek (http://www.netzallee.de/extra/comic-jens)
+* MapKit Zoom Level Category by Troy Brant (http://troybrant.net/blog/2010/01/set-the-zoom-level-of-an-mkmapview/)
+* SSMapAnnotation by Sam Soffes (https://gist.github.com/340858)
