@@ -23,7 +23,6 @@
 		4939164D12C4B2E300C34228 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939164C12C4B2E300C34228 /* MapView.xib */; };
 		4939165112C4B31900C34228 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939165012C4B31900C34228 /* MapViewController.m */; };
 		4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */; };
-		4954C92A12C77D53009A7F36 /* WLSimpleMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C92912C77D53009A7F36 /* WLSimpleMapAnnotation.m */; };
 		4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */; };
 		4968C67F12A2C23B0079533A /* SingleProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C67E12A2C23B0079533A /* SingleProductViewController.xib */; };
 		4968C68312A2C2C10079533A /* SingleProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */; };
@@ -60,8 +59,6 @@
 		4939165012C4B31900C34228 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		4954C90412C77A92009A7F36 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
-		4954C92812C77D53009A7F36 /* WLSimpleMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSimpleMapAnnotation.h; sourceTree = "<group>"; };
-		4954C92912C77D53009A7F36 /* WLSimpleMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSimpleMapAnnotation.m; sourceTree = "<group>"; };
 		4954C94412C77E9C009A7F36 /* SSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMapAnnotation.h; sourceTree = "<group>"; };
 		4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMapAnnotation.m; sourceTree = "<group>"; };
 		4968C67E12A2C23B0079533A /* SingleProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductViewController.xib; sourceTree = "<group>"; };
@@ -112,8 +109,6 @@
 				49A1EC9F12C4833C00D41722 /* WebViewController.m */,
 				4939164F12C4B31900C34228 /* MapViewController.h */,
 				4939165012C4B31900C34228 /* MapViewController.m */,
-				4954C92812C77D53009A7F36 /* WLSimpleMapAnnotation.h */,
-				4954C92912C77D53009A7F36 /* WLSimpleMapAnnotation.m */,
 				4954C94412C77E9C009A7F36 /* SSMapAnnotation.h */,
 				4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */,
 			);
@@ -267,7 +262,6 @@
 				49A1ECA012C4833C00D41722 /* WebViewController.m in Sources */,
 				4939165112C4B31900C34228 /* MapViewController.m in Sources */,
 				4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */,
-				4954C92A12C77D53009A7F36 /* WLSimpleMapAnnotation.m in Sources */,
 				4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

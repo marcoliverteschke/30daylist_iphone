@@ -36,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	[self setTitle:[self.product valueForKey:@"name"]];
+
 	toolbar.tintColor = [UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f];
 	[webView addSubview:toolbar];
 	[[toolbar.items objectAtIndex:0] setEnabled:NO];

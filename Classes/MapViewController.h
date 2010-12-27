@@ -12,10 +12,12 @@
 
 @interface MapViewController : UIViewController {
 	IBOutlet MKMapView *mapView;
+	IBOutlet UIToolbar *toolbar;
 	NSManagedObject *product;	
 }
 
 @property (nonatomic, retain) MKMapView *mapView;
+@property (nonatomic, retain) UIToolbar *toolbar;
 @property (nonatomic, retain) NSManagedObject *product;
 
 @end

@@ -50,7 +50,20 @@ static const NSInteger kProductURLRow = 3;
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+
+	NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/table_bg.png"];
+	UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+	[self.tableView setBackgroundView:imageView];
+	
+	[self.tableView setScrollEnabled:NO];
+	
 	[self.tableView reloadData];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 50.0f;
 }
 
 
@@ -103,7 +116,6 @@ static const NSInteger kProductURLRow = 3;
 
 	UILocalNotification *notification = [[UILocalNotification alloc] init];
 	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:2592000]; // 30 days
-//	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:60];
 	[notification setFireDate:justAMinute];
 	[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [productNameField text]]];
 	[notification setAlertAction:@"Review"];
@@ -131,9 +143,10 @@ static const NSInteger kProductURLRow = 3;
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		
 		if (indexPath.row == kProductNameRow) {
-			productNameField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
+			productNameField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 175, 30)];
 			productNameField.textColor = [UIColor blackColor];
-			productNameField.backgroundColor = [UIColor whiteColor];
+			productNameField.backgroundColor = [UIColor clearColor];
+			productNameField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 
 			productNameField.keyboardType = UIKeyboardTypeAlphabet;
 			productNameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -146,12 +159,14 @@ static const NSInteger kProductURLRow = 3;
 
 			[productNameField setDelegate:self];
 			[productNameField setEnabled: YES];
+			[productNameField becomeFirstResponder];
 			[cell addSubview:productNameField];
 			[productNameField release];
 		} else if (indexPath.row == kProductPriceRow) {
-			productPriceField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
+			productPriceField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 175, 30)];
 			productPriceField.textColor = [UIColor blackColor];
-			productPriceField.backgroundColor = [UIColor whiteColor];
+			productPriceField.backgroundColor = [UIColor clearColor];
+			productPriceField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 
 			productPriceField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
 			productPriceField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -170,9 +185,10 @@ static const NSInteger kProductURLRow = 3;
 			[cell addSubview:productPriceField];
 			[productPriceField release];
 		} else if (indexPath.row == kProductFoundWhereRow) {
-			productFoundWhereField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
+			productFoundWhereField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 175, 30)];
 			productFoundWhereField.textColor = [UIColor blackColor];
-			productFoundWhereField.backgroundColor = [UIColor whiteColor];
+			productFoundWhereField.backgroundColor = [UIColor clearColor];
+			productFoundWhereField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 			
 			productFoundWhereField.keyboardType = UIKeyboardTypeAlphabet;
 			productFoundWhereField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -187,9 +203,10 @@ static const NSInteger kProductURLRow = 3;
 			[cell addSubview:productFoundWhereField];
 			[productFoundWhereField release];
 		} else if (indexPath.row == kProductURLRow) {
-			productURLField = [[UITextField alloc] initWithFrame:CGRectMake(120, 10, 175, 30)];
+			productURLField = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 175, 30)];
 			productURLField.textColor = [UIColor blackColor];
-			productURLField.backgroundColor = [UIColor whiteColor];
+			productURLField.backgroundColor = [UIColor clearColor];
+			productURLField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 			
 			[productURLField setKeyboardType:UIKeyboardTypeURL];
 			productURLField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -206,7 +223,12 @@ static const NSInteger kProductURLRow = 3;
 			[productURLField release];
 		}
 	}
-	
+
+	NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/cell_bg.png"];
+	UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+	[cell setBackgroundView:imageView];
+
 	return cell;
 	
 }

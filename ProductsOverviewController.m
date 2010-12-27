@@ -115,7 +115,6 @@
 	NSEntityDescription *productDescription = [[fetchedResultsController fetchRequest] entity];
 	
 	SingleProductViewController *singleProductViewController = [[SingleProductViewController alloc] initWithNibName:@"SingleProductViewController" bundle:nil];
-//	singleProductViewController.product = newProduct;
 	singleProductViewController.managedObjectContext = managedObjectContext;
 	singleProductViewController.entityDescription = productDescription;
 	singleProductViewController.currentLocation = self.currentLocation;
@@ -146,10 +145,6 @@
 		NSLog(@"Fehler beim Laden");
 		return;
 	}
-	
-//	[self.tableView setBackgroundColor:[UIColor colorWithRed:0.663 green:0.663 blue:0.663 alpha:1]];
-//	[self.tableView setBackgroundColor:[UIColor colorWithRed:0.3315 green:0.3315 blue:0.3315 alpha:1]];
-//	[self.tableView setBackgroundColor:[UIColor colorWithRed:0.1657 green:0.1657 blue:0.1657 alpha:1]];
 	
 	NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/table_bg.png"];
 	UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
@@ -204,11 +199,9 @@
 	[cell setBadgeString:[NSString stringWithFormat:@"%d", daysUntil]];
 	if (daysUntil > 0) {
 		[cell setBadgeColor:[UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f]]; // green
-//		[cell setBadgeColorHighlighted:[UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f]];
 		[cell setBadgeColorHighlighted:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8f]];
 	} else {
 		[cell setBadgeColor:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]]; // red
-//		[cell setBadgeColorHighlighted:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]];
 		[cell setBadgeColorHighlighted:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8f]];
 	}
 	
@@ -230,18 +223,20 @@
 
 
 - (void)startStandardUpdates {
-    // Create the location manager if this object does not
-    // already have one.
     if (nil == locationManager)
         locationManager = [[CLLocationManager alloc] init];
 	
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 	
-    // Set a movement threshold for new events.
     locationManager.distanceFilter = kCLDistanceFilterNone;
 	
     [locationManager startUpdatingLocation];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 75.0f;
 }
 
 
@@ -271,7 +266,6 @@
 		for (NSManagedObject *item in items) {
 			NSDate *storedDate = [item valueForKey:@"found_date"];
 			NSDate *inTheFuture = [storedDate dateByAddingTimeInterval:2592000];
-//			NSDate *inTheFuture = [storedDate dateByAddingTimeInterval:60];
 			UILocalNotification *notification = [[UILocalNotification alloc] init];
 			[notification setFireDate:inTheFuture];
 			[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [item valueForKey:@"name"]]];
@@ -286,14 +280,6 @@
 	}
 }
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code.
-}
-*/
 
 - (void)dealloc {
 	[fetchedResultsController release];
