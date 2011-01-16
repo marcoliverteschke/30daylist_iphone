@@ -18,16 +18,7 @@
 @synthesize locationManager;
 @synthesize currentLocation;
 @synthesize currentProduct;
-
-- (id)initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code.
-    }
-    return self;
-}
-
+@synthesize timeToFireNotification;
 
 - (NSFetchedResultsController *)fetchedResultsController {
 	if(fetchedResultsController != nil)
@@ -133,6 +124,8 @@
 
 	[addButton release];
 
+	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:2592000]];
+//	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:120]];
 	[self startStandardUpdates];
 }
 
@@ -142,7 +135,11 @@
 	
 	NSError *error;
 	if (![self.fetchedResultsController performFetch:&error]) {
-		NSLog(@"Fehler beim Laden");
+		NSLog(@"Fehler beim Laden (1)");
+/*		NSLog([error localizedDescription]);
+		NSLog([error localizedFailureReason]);
+		NSLog([error localizedRecoveryOptions]);
+		NSLog([error localizedRecoverySuggestion]);*/
 		return;
 	}
 	
@@ -157,6 +154,44 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+	// cancel all local notifications
+	[[UIApplication sharedApplication] cancelAllLocalNotifications];
+	
+	NSError *error;
+	if (![self.fetchedResultsController performFetch:&error]) {
+		NSLog(@"Fehler beim Laden (2)");
+/*		NSLog([error localizedDescription]);
+		NSLog([error localizedFailureReason]);
+		NSLog([error localizedRecoveryOptions]);
+		NSLog([error localizedRecoverySuggestion]);*/
+		return;
+	}
+	
+	// create new local notifications for remaining items
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
+	[fetchRequest setEntity:entity];
+	NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	int i = 1;
+	for (NSManagedObject *item in items) {
+		NSDate *storedDate = [item valueForKey:@"found_date"];
+		NSDate *inTheFuture = [storedDate dateByAddingTimeInterval:[[self timeToFireNotification] intValue]];
+		if ([inTheFuture isEqualToDate:[inTheFuture laterDate:[NSDate new]]]) {
+			UILocalNotification *notification = [[UILocalNotification alloc] init];
+			[notification setFireDate:inTheFuture];
+			[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [item valueForKey:@"name"]]];
+			[notification setAlertAction:@"Review"];
+			[notification setSoundName:UILocalNotificationDefaultSoundName];
+			[notification setApplicationIconBadgeNumber:i];
+			[[UIApplication sharedApplication] scheduleLocalNotification:notification];
+			[notification release];
+			i++;
+		} else if ([inTheFuture isEqualToDate:[inTheFuture earlierDate:[NSDate new]]]) {
+			[[UIApplication sharedApplication] setApplicationIconBadgeNumber:i];
+			i++;
+		}
+	}
+	
 	tableView.allowsSelectionDuringEditing = YES;
 	return 1;
 }
@@ -196,13 +231,18 @@
 	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"]];
 	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
 	
-	[cell setBadgeString:[NSString stringWithFormat:@"%d", daysUntil]];
 	if (daysUntil > 0) {
 		[cell setBadgeColor:[UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f]]; // green
 		[cell setBadgeColorHighlighted:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8f]];
+		[cell setBadgeString:[NSString stringWithFormat:@"%d", daysUntil]];
+	} else if (daysUntil == 0) {
+		[cell setBadgeColor:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]]; // red
+		[cell setBadgeColorHighlighted:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8f]];
+		[cell setBadgeString:@"REVIEW"];
 	} else {
 		[cell setBadgeColor:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]]; // red
 		[cell setBadgeColorHighlighted:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8f]];
+		[cell setBadgeString:[NSString stringWithFormat:@"%d", daysUntil * -1]];
 	}
 	
 	if ([[product valueForKey:@"found_url"] length] > 0 || ([[[product valueForKey:@"found_latitude"] stringValue] length] > 0 && [[[product valueForKey:@"found_longitude"] stringValue]length] > 0)) {
@@ -250,31 +290,7 @@
 			NSLog(@"Fehler beim Löschen");
 			return;
 		}
-		// cancel all local notifications
-		[[UIApplication sharedApplication] cancelAllLocalNotifications];
-		
-		if (![fetchedResultsController performFetch:&error]) {
-			NSLog(@"Fehler beim Laden");
-			return;
-		}
-		
-		// create new local notifications for remaining items
-		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-		NSEntityDescription *entity = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
-		[fetchRequest setEntity:entity];
-		NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-		for (NSManagedObject *item in items) {
-			NSDate *storedDate = [item valueForKey:@"found_date"];
-			NSDate *inTheFuture = [storedDate dateByAddingTimeInterval:2592000];
-			UILocalNotification *notification = [[UILocalNotification alloc] init];
-			[notification setFireDate:inTheFuture];
-			[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [item valueForKey:@"name"]]];
-			[notification setAlertAction:@"Review"];
-			[notification setSoundName:UILocalNotificationDefaultSoundName];
-			[[UIApplication sharedApplication] scheduleLocalNotification:notification];
-			[notification release];
-		}  		
-		
+
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
 		[tableView reloadData];
 	}
@@ -282,6 +298,10 @@
 
 
 - (void)dealloc {
+/*	[locationManager release];
+	[currentProduct release];
+	[currentLocation release];
+	[timeToFireNotification release];*/
 	[fetchedResultsController release];
 	[managedObjectContext release];
     [super dealloc];

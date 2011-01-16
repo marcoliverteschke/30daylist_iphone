@@ -40,7 +40,7 @@ static const NSInteger kProductURLRow = 3;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.title = NSLocalizedString(@"Neues Produkt", nil);
+	self.title = NSLocalizedString(@"New item", nil);
 	
 	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveProduct)];
 	self.navigationItem.rightBarButtonItem = doneButton;
@@ -109,19 +109,24 @@ static const NSInteger kProductURLRow = 3;
 	
 	NSError *error;
 	if (![managedObjectContext save:&error]) {
+		NSLog([error localizedDescription]);
+		NSLog([error localizedFailureReason]);
+		NSLog([error localizedRecoveryOptions]);
+		NSLog([error localizedRecoverySuggestion]);
 		NSLog(@"Fehler beim Speichern des Produkts");
-	} else {
+	}/* else {
 		NSLog(@"We cool? Then schedule a notification");
-	}
+	}*/
 
-	UILocalNotification *notification = [[UILocalNotification alloc] init];
+/*	UILocalNotification *notification = [[UILocalNotification alloc] init];
 	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:2592000]; // 30 days
+	NSDate *justAMinute = [[[NSDate alloc] init] dateByAddingTimeInterval:120]; // 30 days
 	[notification setFireDate:justAMinute];
 	[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [productNameField text]]];
 	[notification setAlertAction:@"Review"];
 	[notification setSoundName:UILocalNotificationDefaultSoundName];
 	[[UIApplication sharedApplication] scheduleLocalNotification:notification];
-	[notification release];
+	[notification release];*/
 	
 	[self.navigationController popViewControllerAnimated:TRUE];
 }
@@ -151,11 +156,11 @@ static const NSInteger kProductURLRow = 3;
 			productNameField.keyboardType = UIKeyboardTypeAlphabet;
 			productNameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
 			productNameField.clearButtonMode = UITextFieldViewModeWhileEditing;
-			[productNameField setPlaceholder:NSLocalizedString(@"Awesome App", nil)];
+			[productNameField setPlaceholder:NSLocalizedString(@"Awesome Product", nil)];
 			[productNameField setReturnKeyType:UIReturnKeyNext];
 			[productNameField setText:[product valueForKey:@"name"]];
 			[productNameField setTag:kProductNameRow];
-			cell.textLabel.text = NSLocalizedString(@"Was?", nil);
+			cell.textLabel.text = NSLocalizedString(@"What?", nil);
 
 			[productNameField setDelegate:self];
 			[productNameField setEnabled: YES];
@@ -178,7 +183,7 @@ static const NSInteger kProductURLRow = 3;
 			} else {
 				[productPriceField setText:[NSString stringWithFormat:@"%@", [product valueForKey:@"price"]]];
 			}
-			cell.textLabel.text = NSLocalizedString(@"Wie teuer?", nil);
+			cell.textLabel.text = NSLocalizedString(@"How much?", nil);
 
 			[productPriceField setDelegate:self];
 			[productPriceField setEnabled: YES];
@@ -192,11 +197,11 @@ static const NSInteger kProductURLRow = 3;
 			
 			productFoundWhereField.keyboardType = UIKeyboardTypeAlphabet;
 			productFoundWhereField.clearButtonMode = UITextFieldViewModeWhileEditing;
-			[productFoundWhereField setPlaceholder:NSLocalizedString(@"Gefunden bei", nil)];
+			[productFoundWhereField setPlaceholder:NSLocalizedString(@"Found at", nil)];
 			[productFoundWhereField setReturnKeyType:UIReturnKeyNext];
 			[productFoundWhereField setText:[product valueForKey:@"found_where"]];
 			[productFoundWhereField setTag:kProductFoundWhereRow];
-			cell.textLabel.text = NSLocalizedString(@"Wo?", nil);
+			cell.textLabel.text = NSLocalizedString(@"Where?", nil);
 			
 			[productFoundWhereField setDelegate:self];
 			[productFoundWhereField setEnabled: YES];

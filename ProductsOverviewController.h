@@ -16,6 +16,7 @@
 	CLLocationManager *locationManager;
 	CLLocation *currentLocation;
 	NSManagedObject *currentProduct;
+	NSNumber *timeToFireNotification;
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -23,5 +24,6 @@
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) NSManagedObject *currentProduct;
+@property (nonatomic, retain) NSNumber *timeToFireNotification;
 
 @end
