@@ -87,8 +87,28 @@ static const NSInteger kProductURLRow = 3;
 {
 	NSNumberFormatter *priceFormatter = [NSNumberFormatter alloc];
 	[priceFormatter init];
+	[priceFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"EN-US"]];
 	NSNumber *price = [priceFormatter numberFromString:[productPriceField text]];
 	NSDate *now = [[NSDate alloc] init];
+	
+	if ([[productNameField text] length] == 0) {
+		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: @"Oh my!" message: @"Please enter the name of this fine product!" delegate: self cancelButtonTitle: @"Alright then…" otherButtonTitles: nil];
+		[validationError show];
+		[validationError release];
+		return;
+	}	
+	if (price == nil) {
+		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: @"Oh my!" message: @"You did not enter a price. That is quite cheap!" delegate: self cancelButtonTitle: @"Alright then…" otherButtonTitles: nil];
+		[validationError show];
+		[validationError release];
+		return;
+	}
+	if ([[productFoundWhereField text] length] == 0) {
+		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: @"Oh my!" message: @"Please tell me where I can purchase such quality items!" delegate: self cancelButtonTitle: @"Alright then…" otherButtonTitles: nil];
+		[validationError show];
+		[validationError release];
+		return;
+	}	
 	
 	self.product = [NSEntityDescription insertNewObjectForEntityForName:[entityDescription name] inManagedObjectContext:managedObjectContext];
 	

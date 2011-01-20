@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface ProductsOverviewController : UITableViewController<NSFetchedResultsControllerDelegate,UIActionSheetDelegate> {
+@interface ProductsOverviewController : UITableViewController<NSFetchedResultsControllerDelegate,UIActionSheetDelegate,CLLocationManagerDelegate> {
 	NSManagedObjectContext *managedObjectContext;
 	NSFetchedResultsController *fetchedResultsController;
 	CLLocationManager *locationManager;
@@ -18,6 +18,10 @@
 	NSManagedObject *currentProduct;
 	NSNumber *timeToFireNotification;
 }
+
+- (void)showOnMap:(NSManagedObject *)product;
+- (void)showInBrowser:(NSManagedObject *)product;
+- (void)startStandardUpdates;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;

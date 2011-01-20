@@ -136,10 +136,6 @@
 	NSError *error;
 	if (![self.fetchedResultsController performFetch:&error]) {
 		NSLog(@"Fehler beim Laden (1)");
-/*		NSLog([error localizedDescription]);
-		NSLog([error localizedFailureReason]);
-		NSLog([error localizedRecoveryOptions]);
-		NSLog([error localizedRecoverySuggestion]);*/
 		return;
 	}
 	
@@ -160,11 +156,7 @@
 	NSError *error;
 	if (![self.fetchedResultsController performFetch:&error]) {
 		NSLog(@"Fehler beim Laden (2)");
-/*		NSLog([error localizedDescription]);
-		NSLog([error localizedFailureReason]);
-		NSLog([error localizedRecoveryOptions]);
-		NSLog([error localizedRecoverySuggestion]);*/
-		return;
+		return 0;
 	}
 	
 	// create new local notifications for remaining items
@@ -226,6 +218,7 @@
 	NSInteger daysUntil = 30 + ceil(timeInterval / 86400);
 	
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+	[formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"EN-US"]];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 
 	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"]];

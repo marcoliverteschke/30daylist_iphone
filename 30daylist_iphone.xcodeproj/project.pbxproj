@@ -23,6 +23,7 @@
 		4939165112C4B31900C34228 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939165012C4B31900C34228 /* MapViewController.m */; };
 		4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */; };
 		4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */; };
+		4962858312E736520033E9BC /* 30daylist.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4962858212E736520033E9BC /* 30daylist.xcmappingmodel */; };
 		4968C67F12A2C23B0079533A /* SingleProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C67E12A2C23B0079533A /* SingleProductViewController.xib */; };
 		4968C68312A2C2C10079533A /* SingleProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */; };
 		49783E4912C74EBD0074CEA5 /* table_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49783E4812C74EBD0074CEA5 /* table_bg.png */; };
@@ -64,6 +65,9 @@
 		4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		4954C94412C77E9C009A7F36 /* SSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMapAnnotation.h; sourceTree = "<group>"; };
 		4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMapAnnotation.m; sourceTree = "<group>"; };
+		4962857C12E7359E0033E9BC /* _0daylist_iphone 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "_0daylist_iphone 4.xcdatamodel"; sourceTree = "<group>"; };
+		4962858212E736520033E9BC /* 30daylist.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = 30daylist.xcmappingmodel; sourceTree = "<group>"; };
+		496285B212E73DA00033E9BC /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4968C67E12A2C23B0079533A /* SingleProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductViewController.xib; sourceTree = "<group>"; };
 		4968C68112A2C2C10079533A /* SingleProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleProductViewController.h; path = ../SingleProductViewController.h; sourceTree = "<group>"; };
 		4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleProductViewController.m; path = ../SingleProductViewController.m; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				496285B212E73DA00033E9BC /* Entitlements.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				4939165112C4B31900C34228 /* MapViewController.m in Sources */,
 				4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */,
 				4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */,
+				4962858312E736520033E9BC /* 30daylist.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/workspace/30daylist_iphone/Entitlements.plist";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -303,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/workspace/30daylist_iphone/Entitlements.plist";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = _0daylist_iphone_Prefix.pch;
@@ -311,6 +319,35 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		496285A912E73D1D0033E9BC /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marc-Oliver Teschke";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DF329E5E-BA1B-4016-8FDF-5511728413C8";
+				SDKROOT = iphoneos;
+			};
+			name = Distribution;
+		};
+		496285AA12E73D1D0033E9BC /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "~/workspace/30daylist_iphone/Entitlements.plist";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = _0daylist_iphone_Prefix.pch;
+				INFOPLIST_FILE = "_0daylist_iphone-Info.plist";
+				PRODUCT_NAME = 30daylist_iphone;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -347,6 +384,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				496285AA12E73D1D0033E9BC /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -356,6 +394,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				496285A912E73D1D0033E9BC /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -367,8 +406,10 @@
 			isa = XCVersionGroup;
 			children = (
 				28C3AD890F43EF2300507BA6 /* _0daylist_iphone.xcdatamodel */,
+				4962857C12E7359E0033E9BC /* _0daylist_iphone 4.xcdatamodel */,
+				4962858212E736520033E9BC /* 30daylist.xcmappingmodel */,
 			);
-			currentVersion = 28C3AD890F43EF2300507BA6 /* _0daylist_iphone.xcdatamodel */;
+			currentVersion = 4962857C12E7359E0033E9BC /* _0daylist_iphone 4.xcdatamodel */;
 			path = _0daylist_iphone.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
