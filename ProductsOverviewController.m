@@ -121,11 +121,11 @@
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAddProductForm)];
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f];
 	self.navigationItem.rightBarButtonItem = addButton;
-
+	
 	[addButton release];
 
 	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:2592000]];
-//	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:120]];
+//	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:300]];
 	[self startStandardUpdates];
 }
 
@@ -163,7 +163,10 @@
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
 	[fetchRequest setEntity:entity];
+	NSSortDescriptor *sortByDateDesc = [[NSSortDescriptor alloc] initWithKey:@"found_date" ascending:YES];
+	[fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortByDateDesc, nil]];
 	NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 	int i = 1;
 	for (NSManagedObject *item in items) {
 		NSDate *storedDate = [item valueForKey:@"found_date"];
@@ -200,6 +203,12 @@
 }
 
 
+-(void)reloadProductsTable {
+	NSLog(@"reloadin'");
+	[self.tableView reloadData];
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *CellIdentifier = @"Cell";
 	
@@ -221,7 +230,7 @@
 	[formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"EN-US"]];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 
-	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ | %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"]];
+	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ @ %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"]];
 	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
 	
 	if (daysUntil > 0) {
@@ -261,9 +270,7 @@
 	
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-	
     locationManager.distanceFilter = kCLDistanceFilterNone;
-	
     [locationManager startUpdatingLocation];
 }
 
@@ -291,10 +298,12 @@
 
 
 - (void)dealloc {
-/*	[locationManager release];
+/*
+	[locationManager release];
 	[currentProduct release];
 	[currentLocation release];
-	[timeToFireNotification release];*/
+	[timeToFireNotification release];
+ */
 	[fetchedResultsController release];
 	[managedObjectContext release];
     [super dealloc];

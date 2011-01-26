@@ -38,6 +38,7 @@
 		49D4BF0C12E32AD7007F1758 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 49D4BF0912E32AD7007F1758 /* Icon-72.png */; };
 		49D4BF0D12E32AD7007F1758 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49D4BF0A12E32AD7007F1758 /* Icon.png */; };
 		49D4BF0E12E32AD7007F1758 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49D4BF0B12E32AD7007F1758 /* Icon@2x.png */; };
+		49D9177812EB0425008FE000 /* ProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D9177712EB0425008FE000 /* ProductManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,8 @@
 		49D4BF0912E32AD7007F1758 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		49D4BF0A12E32AD7007F1758 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		49D4BF0B12E32AD7007F1758 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		49D9177612EB0425008FE000 /* ProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductManager.h; sourceTree = "<group>"; };
+		49D9177712EB0425008FE000 /* ProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductManager.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "_0daylist_iphone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +126,8 @@
 				4939165012C4B31900C34228 /* MapViewController.m */,
 				4954C94412C77E9C009A7F36 /* SSMapAnnotation.h */,
 				4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */,
+				49D9177612EB0425008FE000 /* ProductManager.h */,
+				49D9177712EB0425008FE000 /* ProductManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */,
 				4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */,
 				4962858312E736520033E9BC /* 30daylist.xcmappingmodel in Sources */,
+				49D9177812EB0425008FE000 /* ProductManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +334,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DF329E5E-BA1B-4016-8FDF-5511728413C8";
@@ -370,6 +377,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;

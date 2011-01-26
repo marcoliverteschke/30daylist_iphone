@@ -22,6 +22,7 @@
 - (void)showOnMap:(NSManagedObject *)product;
 - (void)showInBrowser:(NSManagedObject *)product;
 - (void)startStandardUpdates;
+- (void)reloadProductsTable;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;

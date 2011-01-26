@@ -38,22 +38,35 @@
 	
 	[self setTitle:[self.product valueForKey:@"name"]];
 
+/*	UIBarButtonItem *externalButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(someFunction)];// target:self action:@selector(showAddProductForm)];
+	self.navigationItem.rightBarButtonItem = externalButton;*/
+	
 	toolbar.tintColor = [UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f];
 	[webView addSubview:toolbar];
 	[[toolbar.items objectAtIndex:0] setEnabled:NO];
 	[[toolbar.items objectAtIndex:1] setEnabled:NO];
 	
+	[webView setScalesPageToFit:YES];
+	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self formatURL:[product valueForKey:@"found_url"]]]]];
+}
+
+
+- (NSString*)formatURL:(NSString*)original {
 	NSString *regEx = @"^http://.*";
-	NSMutableString *go_to_url;
-	NSRange r = [[product valueForKey:@"found_url"] rangeOfString:regEx options:NSRegularExpressionSearch];
+	NSRange r = [original rangeOfString:regEx options:NSRegularExpressionSearch];
 	if (r.location == NSNotFound) {
-		go_to_url = [NSString stringWithFormat:@"http://%@", [product valueForKey:@"found_url"]];
+		return [NSString stringWithFormat:@"http://%@", original];
 	} else {
-		go_to_url = [product valueForKey:@"found_url"];
+		return original;
 	}
 	
-	[webView setScalesPageToFit:YES];
-	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:go_to_url]]];
+}
+
+
+- (void)someFunction {
+	NSLog(@"some…");
+	NSLog([self formatURL:[product valueForKey:@"found_url"]]);
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self formatURL:[product valueForKey:@"found_url"]]]];
 }
 
 
