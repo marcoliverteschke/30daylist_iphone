@@ -63,11 +63,11 @@
 }
 
 
-- (void)someFunction {
+/*- (void)someFunction {
 	NSLog(@"some…");
 	NSLog([self formatURL:[product valueForKey:@"found_url"]]);
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self formatURL:[product valueForKey:@"found_url"]]]];
-}
+}*/
 
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

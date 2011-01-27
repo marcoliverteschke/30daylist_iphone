@@ -15,6 +15,8 @@
 	NSManagedObject *product;	
 }
 
+- (NSString*)formatURL:(NSString*)original;
+
 @property (nonatomic, retain) UIWebView *webView;
 @property (nonatomic, retain) UIToolbar *toolbar;
 @property (nonatomic, retain) NSManagedObject *product;
