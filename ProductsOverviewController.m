@@ -192,6 +192,16 @@
 }
 
 
+-(NSInteger)numberOfItemsStored {
+	NSError *error;
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
+	[fetchRequest setEntity:entity];
+	NSArray *items = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	return [items count];
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSArray *sections = [fetchedResultsController sections];
 	NSUInteger count = 0;
@@ -203,8 +213,68 @@
 }
 
 
+-(void)populateWithDemoData {
+	UIAlertView *firstLaunchAlert = [[UIAlertView alloc] initWithTitle: @"Hey there!" message: @"I don't think we've met before. I've created some sample data for you to see what 30daylist does." delegate: self cancelButtonTitle: @"Let's rock!" otherButtonTitles: nil];
+	[firstLaunchAlert show];
+	[firstLaunchAlert release];
+	
+	NSNumberFormatter *priceFormatter = [NSNumberFormatter alloc];
+	[priceFormatter init];
+	[priceFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"EN-US"]];
+	
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"product" inManagedObjectContext:managedObjectContext];
+
+	NSNumber *price = [priceFormatter numberFromString:@"0.99"];
+	NSDate *due = [[[NSDate alloc] init] dateByAddingTimeInterval:(86400 * 30 * -1)];
+	id product = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContext];
+	[product setValue:@"item ready for review" forKey:@"name"];
+	[product setValue:price forKey:@"price"];
+	[product setValue:@"30daylist" forKey:@"found_where"];
+	[product setValue:@"http://www.30daylist.com" forKey:@"found_url"];
+	[product setValue:[[NSNumber alloc] initWithFloat:52.516269] forKey:@"found_latitude"];
+	[product setValue:[[NSNumber alloc] initWithFloat:13.377779] forKey:@"found_longitude"];
+	[product setValue:due forKey:@"found_date"];
+	NSError *error;
+	if (![managedObjectContext save:&error]) {
+		NSLog(@"Fehler beim Speichern des Produkts");
+	}
+
+	due = [[[NSDate alloc] init] dateByAddingTimeInterval:(86400 * 30 * -1) + (300)];
+	product = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContext];
+	[product setValue:@"item due in 5 minutes" forKey:@"name"];
+	[product setValue:price forKey:@"price"];
+	[product setValue:@"30daylist" forKey:@"found_where"];
+	[product setValue:@"http://www.30daylist.com" forKey:@"found_url"];
+	[product setValue:[[NSNumber alloc] initWithFloat:52.516269] forKey:@"found_latitude"];
+	[product setValue:[[NSNumber alloc] initWithFloat:13.377779] forKey:@"found_longitude"];
+	[product setValue:due forKey:@"found_date"];
+	if (![managedObjectContext save:&error]) {
+		NSLog(@"Fehler beim Speichern des Produkts");
+	}
+
+	due = [[NSDate alloc] init];
+	product = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContext];
+	[product setValue:@"item due in 30 days" forKey:@"name"];
+	[product setValue:price forKey:@"price"];
+	[product setValue:@"30daylist" forKey:@"found_where"];
+	[product setValue:@"http://www.30daylist.com" forKey:@"found_url"];
+	[product setValue:[[NSNumber alloc] initWithFloat:52.516269] forKey:@"found_latitude"];
+	[product setValue:[[NSNumber alloc] initWithFloat:13.377779] forKey:@"found_longitude"];
+	[product setValue:due forKey:@"found_date"];
+	if (![managedObjectContext save:&error]) {
+		NSLog(@"Fehler beim Speichern des Produkts");
+	}
+}
+
+
 -(void)reloadProductsTable {
 	NSLog(@"reloadin'");
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+		NSLog(@"FIRST!");
+	} else {
+		NSLog(@"Simpsons did it!");
+	}
+
 	[self.tableView reloadData];
 }
 

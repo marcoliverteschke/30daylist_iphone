@@ -19,9 +19,18 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
 	ProductsOverviewController *viewController = (ProductsOverviewController *)navigationController.topViewController;
 	viewController.managedObjectContext = self.managedObjectContext;
+
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSString *didLaunchBefore = [defaults stringForKey:@"didLaunchBefore"];
+	if (didLaunchBefore == nil && [viewController numberOfItemsStored] == 0) {
+		[viewController populateWithDemoData];
+	}
+	[defaults setObject:@"yes" forKey:@"didLaunchBefore"];
+	[defaults synchronize];
 	
 	[self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
@@ -73,6 +82,7 @@
  applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
  */
 - (void)applicationWillTerminate:(UIApplication *)application {
+//	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
     [self saveContext];
 }
 
