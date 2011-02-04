@@ -87,7 +87,7 @@ static const NSInteger kProductURLRow = 3;
 {
 	NSNumberFormatter *priceFormatter = [NSNumberFormatter alloc];
 	[priceFormatter init];
-	[priceFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"EN-US"]];
+//	[priceFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"EN-US"]];
 	NSNumber *price = [priceFormatter numberFromString:[productPriceField text]];
 	NSDate *now = [[NSDate alloc] init];
 	
@@ -195,7 +195,10 @@ static const NSInteger kProductURLRow = 3;
 
 			productPriceField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
 			productPriceField.clearButtonMode = UITextFieldViewModeWhileEditing;
-			[productPriceField setPlaceholder:NSLocalizedString(@"0.99", nil)];
+			
+			NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+			[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+			[productPriceField setPlaceholder:[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [formatter stringFromNumber:[[NSNumber alloc] initWithFloat:0.99]]]];
 			[productPriceField setReturnKeyType:UIReturnKeyNext];
 			[productPriceField setTag:kProductPriceRow];
 			if ([product valueForKey:@"price"] == nil) {

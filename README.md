@@ -23,3 +23,16 @@ The item will be on your list for 30 days. On day 30 you will get a reminder to 
 * Comic Jens by Jens Kutilek (http://www.netzallee.de/extra/comic-jens)
 * MapKit Zoom Level Category by Troy Brant (http://troybrant.net/blog/2010/01/set-the-zoom-level-of-an-mkmapview/)
 * SSMapAnnotation by Sam Soffes (https://gist.github.com/340858)
+
+
+## Changelog
+
+### 1.0.1
+
+* [BUGFIX] The app would crash when switching to it while the form, the web-view or the maps-view was active.
+* [BUGFIX] When deleting the last due item, the badge counter would not disappear.
+
+### 1.1
+
+* [FEATURE] On first launch, the app creates some items to demonstrate its functionality.
+* [FEATURE] Prices can be input and displayed in the currency format of your iPhone's locale.

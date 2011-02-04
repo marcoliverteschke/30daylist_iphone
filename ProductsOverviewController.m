@@ -268,13 +268,6 @@
 
 
 -(void)reloadProductsTable {
-	NSLog(@"reloadin'");
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
-		NSLog(@"FIRST!");
-	} else {
-		NSLog(@"Simpsons did it!");
-	}
-
 	[self.tableView reloadData];
 }
 
@@ -297,7 +290,7 @@
 	NSInteger daysUntil = 30 + ceil(timeInterval / 86400);
 	
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-	[formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"EN-US"]];
+//	[formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"EN-US"]];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
 
 	cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%@ @ %@", nil), [formatter stringFromNumber:[product valueForKey:@"price"]], [product valueForKey:@"found_where"]];

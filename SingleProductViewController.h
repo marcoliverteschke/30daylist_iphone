@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface SingleProductViewController : UITableViewController {
+@interface SingleProductViewController : UITableViewController<UITextFieldDelegate> {
 	CLLocation *currentLocation;
 	NSManagedObjectContext *managedObjectContext;
 	NSManagedObject *product;

@@ -23,6 +23,8 @@
 - (void)showInBrowser:(NSManagedObject *)product;
 - (void)startStandardUpdates;
 - (void)reloadProductsTable;
+- (NSInteger)numberOfItemsStored;
+- (void)populateWithDemoData;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
