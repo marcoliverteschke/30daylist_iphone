@@ -20,6 +20,8 @@
 	UITextField *productURLField;
 }
 
+- (IBAction)saveProduct;
+
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSManagedObject *product;
