@@ -230,7 +230,7 @@
 	[product setValue:@"item ready for review" forKey:@"name"];
 	[product setValue:price forKey:@"price"];
 	[product setValue:@"30daylist" forKey:@"found_where"];
-	[product setValue:@"http://www.30daylist.com" forKey:@"found_url"];
+	[product setValue:@"http://www.30daylistapp.com" forKey:@"found_url"];
 	[product setValue:[[NSNumber alloc] initWithFloat:52.516269] forKey:@"found_latitude"];
 	[product setValue:[[NSNumber alloc] initWithFloat:13.377779] forKey:@"found_longitude"];
 	[product setValue:due forKey:@"found_date"];
@@ -244,7 +244,7 @@
 	[product setValue:@"item due in 5 minutes" forKey:@"name"];
 	[product setValue:price forKey:@"price"];
 	[product setValue:@"30daylist" forKey:@"found_where"];
-	[product setValue:@"http://www.30daylist.com" forKey:@"found_url"];
+	[product setValue:@"http://www.30daylistapp.com" forKey:@"found_url"];
 	[product setValue:[[NSNumber alloc] initWithFloat:52.516269] forKey:@"found_latitude"];
 	[product setValue:[[NSNumber alloc] initWithFloat:13.377779] forKey:@"found_longitude"];
 	[product setValue:due forKey:@"found_date"];
@@ -257,7 +257,7 @@
 	[product setValue:@"item due in 30 days" forKey:@"name"];
 	[product setValue:price forKey:@"price"];
 	[product setValue:@"30daylist" forKey:@"found_where"];
-	[product setValue:@"http://www.30daylist.com" forKey:@"found_url"];
+	[product setValue:@"http://www.30daylistapp.com" forKey:@"found_url"];
 	[product setValue:[[NSNumber alloc] initWithFloat:52.516269] forKey:@"found_latitude"];
 	[product setValue:[[NSNumber alloc] initWithFloat:13.377779] forKey:@"found_longitude"];
 	[product setValue:due forKey:@"found_date"];
