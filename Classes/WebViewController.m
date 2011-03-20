@@ -38,8 +38,8 @@
 	
 	[self setTitle:[self.product valueForKey:@"name"]];
 
-/*	UIBarButtonItem *externalButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(someFunction)];// target:self action:@selector(showAddProductForm)];
-	self.navigationItem.rightBarButtonItem = externalButton;*/
+	UIBarButtonItem *externalButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(handItToSafari)];// target:self action:@selector(showAddProductForm)];
+	self.navigationItem.rightBarButtonItem = externalButton;
 	
 	toolbar.tintColor = [UIColor colorWithRed:0.16f green:0.36f blue:0.46f alpha:0.8f];
 	[webView addSubview:toolbar];
@@ -63,11 +63,9 @@
 }
 
 
-/*- (void)someFunction {
-	NSLog(@"some…");
-	NSLog([self formatURL:[product valueForKey:@"found_url"]]);
+- (void)handItToSafari {
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self formatURL:[product valueForKey:@"found_url"]]]];
-}*/
+}
 
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

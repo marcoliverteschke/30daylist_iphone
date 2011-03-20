@@ -43,18 +43,18 @@
 	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
 	self.currentProduct = product;
 	UIActionSheet *actionsMenu = [[UIActionSheet alloc]
-							 initWithTitle: @"Show me that thing"
+							 initWithTitle: @"Show me that thing…"
 							 delegate:self
 							 cancelButtonTitle:nil
 							 destructiveButtonTitle:nil
 							 otherButtonTitles: nil];
 	
 	if ([[product valueForKey:@"found_url"] length] > 0) {
-		[actionsMenu addButtonWithTitle:@"…in the browser"];
+		[actionsMenu addButtonWithTitle:@"in the browser"];
 	}
 
 	if ([[[product valueForKey:@"found_latitude"] stringValue] length] > 0 && [[[product valueForKey:@"found_longitude"] stringValue]length] > 0) {
-		[actionsMenu addButtonWithTitle:@"…on a map"];
+		[actionsMenu addButtonWithTitle:@"on a map"];
 	}
 	
 	[actionsMenu addButtonWithTitle:@"Uh, never mind"];
@@ -70,9 +70,9 @@
 	// latlong => 0 == map, 1 == cancel
 	// url + latlong => 0 == browser, 1 == latlong, 2 == cancel
 	
-	if ([actionSheet buttonTitleAtIndex:buttonIdx] == @"…in the browser") {
+	if ([actionSheet buttonTitleAtIndex:buttonIdx] == @"in the browser") {
 		[self showInBrowser:self.currentProduct];
-	} else if ([actionSheet buttonTitleAtIndex:buttonIdx] == @"…on a map") {
+	} else if ([actionSheet buttonTitleAtIndex:buttonIdx] == @"on a map") {
 		[self showOnMap:self.currentProduct];
 	} else {
 		[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
@@ -84,6 +84,7 @@
 - (void)showOnMap:(NSManagedObject *)product {
 	MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapView" bundle:nil];
 	mapViewController.product = product;
+	mapViewController.currentLocation = currentLocation;
 	[self.navigationController pushViewController:mapViewController animated:YES];
 	[mapViewController release];
 }

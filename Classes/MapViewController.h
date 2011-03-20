@@ -11,11 +11,13 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface MapViewController : UIViewController {
+	CLLocation *currentLocation;
 	IBOutlet MKMapView *mapView;
 	IBOutlet UIToolbar *toolbar;
 	NSManagedObject *product;	
 }
 
+@property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic, retain) UIToolbar *toolbar;
 @property (nonatomic, retain) NSManagedObject *product;
