@@ -337,7 +337,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>49FEA9101336061E002FC230</string>
+										<string>49BC4F471351A36F00EF94C5</string>
 										<key>history</key>
 										<array>
 											<string>4968C60012A2B8570079533A</string>
@@ -368,7 +368,7 @@
 											<string>49FEA8F713360197002FC230</string>
 											<string>49FEA90013360256002FC230</string>
 											<string>49FEA90113360256002FC230</string>
-											<string>49FEA90213360256002FC230</string>
+											<string>49FEA9101336061E002FC230</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -380,14 +380,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1089, 455}}</string>
+								<string>{{0, 0}, {1089, 448}}</string>
 								<key>RubberWindowFrame</key>
 								<string>1920 455 1280 745 1920 400 1280 800 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>455pt</string>
+							<string>448pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -400,14 +400,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 460}, {1089, 244}}</string>
+								<string>{{0, 453}, {1089, 251}}</string>
 								<key>RubberWindowFrame</key>
 								<string>1920 455 1280 745 1920 400 1280 800 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>244pt</string>
+							<string>251pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -426,9 +426,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>49FEA8A11335FBC2002FC230</string>
+				<string>49BC4F481351A36F00EF94C5</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>49FEA8A21335FBC2002FC230</string>
+				<string>49BC4F491351A36F00EF94C5</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -566,11 +566,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>49FEA9111336061E002FC230</string>
-		<string>49FEA9121336061E002FC230</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>49E048AB129ADDB90048F841</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/marc/workspace/30daylist_iphone/30daylist_iphone.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -651,7 +647,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>49E048AB129ADDB90048F841</string>
-				<string>49FEA8A31335FBC2002FC230</string>
+				<string>49BC4F4A1351A36F00EF94C5</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
