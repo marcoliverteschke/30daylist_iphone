@@ -71,7 +71,7 @@
 	[self.mapView setCenterCoordinate:coordinate zoomLevel:14 animated:YES];
 	[self.mapView setMapType:MKMapTypeHybrid];
 	
-	SSMapAnnotation *annotation = [[SSMapAnnotation alloc] initWithCoordinate:coordinate title:[product valueForKey:@"name"] subtitle: @"this is where you found it"];
+	SSMapAnnotation *annotation = [[SSMapAnnotation alloc] initWithCoordinate:coordinate title:[product valueForKey:@"name"] subtitle: NSLocalizedString(@"this is where you found it", @"subtitle for the Maps indicator of the item's location")];
 	[self.mapView addAnnotation:annotation];
 	[self.mapView selectAnnotation:annotation animated:YES];
 }
