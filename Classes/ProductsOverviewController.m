@@ -125,8 +125,8 @@
 	
 	[addButton release];
 
-//	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:2592000]];
-	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:60]];
+	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:2592000]];
+//	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:60]];
 	[self startStandardUpdates];
 }
 
