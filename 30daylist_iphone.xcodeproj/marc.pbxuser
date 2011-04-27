@@ -303,22 +303,21 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 325410560;
-			PBXWorkspaceStateSaveDate = 325410560;
+			PBXPerProjectTemplateStateSaveDate = 325583849;
+			PBXWorkspaceStateSaveDate = 325583849;
 		};
 		perUserProjectItems = {
 			4929E04D12EB46F300CAC58F /* XDModelBookmark */ = 4929E04D12EB46F300CAC58F /* XDModelBookmark */;
+			492CFFB41368044D00EE1397 /* PBXTextBookmark */ = 492CFFB41368044D00EE1397 /* PBXTextBookmark */;
 			4954C95C12C77F59009A7F36 /* PBXTextBookmark */ = 4954C95C12C77F59009A7F36 /* PBXTextBookmark */;
 			4954C95D12C77F59009A7F36 /* PBXTextBookmark */ = 4954C95D12C77F59009A7F36 /* PBXTextBookmark */;
 			4962858B12E736A20033E9BC /* XDModelBookmark */ = 4962858B12E736A20033E9BC /* XDModelBookmark */;
 			4962858C12E736A20033E9BC /* XDModelBookmark */ = 4962858C12E736A20033E9BC /* XDModelBookmark */;
 			4979BB4D12F13FD8002B046A /* PBXTextBookmark */ = 4979BB4D12F13FD8002B046A /* PBXTextBookmark */;
 			498A22E81365724D009F742D /* PBXTextBookmark */ = 498A22E81365724D009F742D /* PBXTextBookmark */;
-			498A22E91365724D009F742D /* PBXBookmark */ = 498A22E91365724D009F742D /* PBXBookmark */;
 			498A22EC1365724D009F742D /* PBXTextBookmark */ = 498A22EC1365724D009F742D /* PBXTextBookmark */;
 			49ABF22F1364C8DF0074A704 /* PBXTextBookmark */ = 49ABF22F1364C8DF0074A704 /* PBXTextBookmark */;
 			49ABF2301364C8DF0074A704 /* PBXTextBookmark */ = 49ABF2301364C8DF0074A704 /* PBXTextBookmark */;
-			49ABF2321364C8DF0074A704 /* PBXTextBookmark */ = 49ABF2321364C8DF0074A704 /* PBXTextBookmark */;
 			49C5ACB51364579C00FCEB9C /* PlistBookmark */ = 49C5ACB51364579C00FCEB9C /* PlistBookmark */;
 			49C5ACB61364579C00FCEB9C /* PBXBookmark */ = 49C5ACB61364579C00FCEB9C /* PBXBookmark */;
 			49C5ACB71364579C00FCEB9C /* PBXBookmark */ = 49C5ACB71364579C00FCEB9C /* PBXBookmark */;
@@ -340,23 +339,20 @@
 		userBuildSettings = {
 		};
 	};
-	490235F112BE8BE600329F60 /* TDBadgedCell.m */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = sourcecode.c.objc;
-		name = TDBadgedCell.m;
-		path = /Users/marc/workspace/30daylist_iphone/TDBadgedCell.m;
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1258, 2964}}";
-			sepNavSelRange = "{2276, 12}";
-			sepNavVisRange = "{5003, 768}";
-		};
-	};
 	4929E04D12EB46F300CAC58F /* XDModelBookmark */ = {
 		isa = XDModelBookmark;
 		fRef = 4962857C12E7359E0033E9BC /* _0daylist_iphone 4.xcdatamodel */;
 		fallbackIsa = PBXBookmark;
+	};
+	492CFFB41368044D00EE1397 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 498A22DB136570BE009F742D /* en */;
+		name = "Localizable.strings: 9";
+		rLen = 0;
+		rLoc = 432;
+		rType = 0;
+		vrLen = 2517;
+		vrLoc = 0;
 	};
 	4939164F12C4B31900C34228 /* MapViewController.h */ = {
 		uiCtxt = {
@@ -622,20 +618,6 @@
 		fRef = 28C3AD890F43EF2300507BA6 /* _0daylist_iphone.xcdatamodel */;
 		fallbackIsa = PBXBookmark;
 	};
-	4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {
-		isa = PBXFileReference;
-		fileEncoding = 4;
-		lastKnownFileType = sourcecode.c.objc;
-		name = SingleProductViewController.m;
-		path = /Users/marc/workspace/30daylist_iphone/SingleProductViewController.m;
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2525, 3861}}";
-			sepNavSelRange = "{3657, 0}";
-			sepNavVisRange = "{4242, 1769}";
-			sepNavWindowFrame = "{{19, 0}, {1096, 778}}";
-		};
-	};
 	4979BB4D12F13FD8002B046A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 49A1EC9E12C4833C00D41722 /* WebViewController.h */;
@@ -649,7 +631,7 @@
 	498A22DB136570BE009F742D /* en */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {2847, 1118}}";
-			sepNavSelRange = "{0, 0}";
+			sepNavSelRange = "{432, 0}";
 			sepNavVisRange = "{0, 2517}";
 		};
 	};
@@ -662,10 +644,6 @@
 		rType = 0;
 		vrLen = 1294;
 		vrLoc = 0;
-	};
-	498A22E91365724D009F742D /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 498A22DB136570BE009F742D /* en */;
 	};
 	498A22EC1365724D009F742D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -685,7 +663,7 @@
 		continueAfterActions = 0;
 		countType = 0;
 		delayBeforeContinue = 0;
-		fileReference = 4968C68212A2C2C10079533A /* SingleProductViewController.m */;
+		fileReference = 498A22D51365708B009F742D /* SingleProductViewController.m */;
 		functionName = "-tableView:cellForRowAtIndexPath:";
 		hitCount = 1;
 		ignoreCount = 0;
@@ -728,16 +706,6 @@
 		rType = 0;
 		vrLen = 1777;
 		vrLoc = 1393;
-	};
-	49ABF2321364C8DF0074A704 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 490235F112BE8BE600329F60 /* TDBadgedCell.m */;
-		name = "TDBadgedCell.m: 102";
-		rLen = 12;
-		rLoc = 2276;
-		rType = 0;
-		vrLen = 768;
-		vrLoc = 5003;
 	};
 	49C5ACB51364579C00FCEB9C /* PlistBookmark */ = {
 		isa = PlistBookmark;
