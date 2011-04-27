@@ -13,26 +13,27 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		28193060112F816700ECF9B4 /* _0daylist_iphone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2819305F112F816700ECF9B4 /* _0daylist_iphone.xcdatamodeld */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D801B40F44B63D00FB423F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D801B30F44B63D00FB423F /* CoreData.framework */; };
 		49002DC812C63FC70011E5B4 /* cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49002DC712C63FC70011E5B4 /* cell_bg.png */; };
-		490235F212BE8BE600329F60 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 490235F112BE8BE600329F60 /* TDBadgedCell.m */; };
-		492BE975129B16AD0011657A /* ProductsOverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BE974129B16AD0011657A /* ProductsOverviewController.m */; };
 		4939162812C4B2D100C34228 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4939162712C4B2D100C34228 /* MapKit.framework */; };
-		4939164D12C4B2E300C34228 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939164C12C4B2E300C34228 /* MapView.xib */; };
 		4939165112C4B31900C34228 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939165012C4B31900C34228 /* MapViewController.m */; };
 		4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */; };
 		4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4954C94512C77E9C009A7F36 /* SSMapAnnotation.m */; };
 		4962858312E736520033E9BC /* 30daylist.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4962858212E736520033E9BC /* 30daylist.xcmappingmodel */; };
-		4968C67F12A2C23B0079533A /* SingleProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C67E12A2C23B0079533A /* SingleProductViewController.xib */; };
-		4968C68312A2C2C10079533A /* SingleProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4968C68212A2C2C10079533A /* SingleProductViewController.m */; };
 		49783E4912C74EBD0074CEA5 /* table_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 49783E4812C74EBD0074CEA5 /* table_bg.png */; };
 		4980787C12C4E23A00B671F5 /* arrowleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787912C4E23A00B671F5 /* arrowleft.png */; };
 		4980787D12C4E23A00B671F5 /* arrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787A12C4E23A00B671F5 /* arrowright.png */; };
 		4980787E12C4E23A00B671F5 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4980787B12C4E23A00B671F5 /* reload.png */; };
+		498A22D313657073009F742D /* ProductsOverviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A22D213657073009F742D /* ProductsOverviewController.m */; };
+		498A22D61365708B009F742D /* SingleProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A22D51365708B009F742D /* SingleProductViewController.m */; };
+		498A22D9136570A1009F742D /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A22D8136570A1009F742D /* TDBadgedCell.m */; };
+		498A22DC136570BE009F742D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 498A22DA136570BE009F742D /* Localizable.strings */; };
 		49A1ECA012C4833C00D41722 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A1EC9F12C4833C00D41722 /* WebViewController.m */; };
-		49A1ECB212C4848B00D41722 /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A1ECB112C4848B00D41722 /* WebView.xib */; };
 		49A99B3B12B5485700C46DCE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A99B3A12B5485700C46DCE /* CoreLocation.framework */; };
+		49C5ACAB1364550F00FCEB9C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C5ACA31364550F00FCEB9C /* MainWindow.xib */; };
+		49C5ACAC1364550F00FCEB9C /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C5ACA51364550F00FCEB9C /* MapView.xib */; };
+		49C5ACAD1364550F00FCEB9C /* SingleProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C5ACA71364550F00FCEB9C /* SingleProductViewController.xib */; };
+		49C5ACAE1364550F00FCEB9C /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C5ACA91364550F00FCEB9C /* WebView.xib */; };
 		49D4BEF212E32730007F1758 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 49D4BEF012E32730007F1758 /* default.png */; };
 		49D4BEF312E32730007F1758 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49D4BEF112E32730007F1758 /* default@2x.png */; };
 		49D4BF0C12E32AD7007F1758 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 49D4BF0912E32AD7007F1758 /* Icon-72.png */; };
@@ -48,18 +49,12 @@
 		1D6058910D05DD3D006BFB54 /* 30daylist_iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 30daylist_iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28C3AD890F43EF2300507BA6 /* _0daylist_iphone.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = _0daylist_iphone.xcdatamodel; sourceTree = "<group>"; };
 		28D801B30F44B63D00FB423F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* _0daylist_iphone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _0daylist_iphone_Prefix.pch; sourceTree = "<group>"; };
 		49002DC712C63FC70011E5B4 /* cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_bg.png; sourceTree = "<group>"; };
-		490235F012BE8BE600329F60 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = ../TDBadgedCell.h; sourceTree = "<group>"; };
-		490235F112BE8BE600329F60 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBadgedCell.m; path = ../TDBadgedCell.m; sourceTree = "<group>"; };
-		492BE973129B16AD0011657A /* ProductsOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductsOverviewController.h; path = ../ProductsOverviewController.h; sourceTree = "<group>"; };
-		492BE974129B16AD0011657A /* ProductsOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductsOverviewController.m; path = ../ProductsOverviewController.m; sourceTree = "<group>"; };
 		4939162712C4B2D100C34228 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		4939164C12C4B2E300C34228 /* MapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
 		4939164F12C4B31900C34228 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		4939165012C4B31900C34228 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		4954C90412C77A92009A7F36 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
@@ -69,17 +64,29 @@
 		4962857C12E7359E0033E9BC /* _0daylist_iphone 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "_0daylist_iphone 4.xcdatamodel"; sourceTree = "<group>"; };
 		4962858212E736520033E9BC /* 30daylist.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = 30daylist.xcmappingmodel; sourceTree = "<group>"; };
 		496285B212E73DA00033E9BC /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		4968C67E12A2C23B0079533A /* SingleProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductViewController.xib; sourceTree = "<group>"; };
-		4968C68112A2C2C10079533A /* SingleProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleProductViewController.h; path = ../SingleProductViewController.h; sourceTree = "<group>"; };
-		4968C68212A2C2C10079533A /* SingleProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleProductViewController.m; path = ../SingleProductViewController.m; sourceTree = "<group>"; };
 		49783E4812C74EBD0074CEA5 /* table_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_bg.png; sourceTree = "<group>"; };
 		4980787912C4E23A00B671F5 /* arrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowleft.png; sourceTree = "<group>"; };
 		4980787A12C4E23A00B671F5 /* arrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowright.png; sourceTree = "<group>"; };
 		4980787B12C4E23A00B671F5 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
+		498A22D113657073009F742D /* ProductsOverviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsOverviewController.h; sourceTree = "<group>"; };
+		498A22D213657073009F742D /* ProductsOverviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsOverviewController.m; sourceTree = "<group>"; };
+		498A22D41365708B009F742D /* SingleProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleProductViewController.h; sourceTree = "<group>"; };
+		498A22D51365708B009F742D /* SingleProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleProductViewController.m; sourceTree = "<group>"; };
+		498A22D7136570A1009F742D /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
+		498A22D8136570A1009F742D /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
+		498A22DB136570BE009F742D /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		498A22E01365712D009F742D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49A1EC9E12C4833C00D41722 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		49A1EC9F12C4833C00D41722 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		49A1ECB112C4848B00D41722 /* WebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = "<group>"; };
 		49A99B3A12B5485700C46DCE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		49C5ACA41364550F00FCEB9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		49C5ACA61364550F00FCEB9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MapView.xib; sourceTree = "<group>"; };
+		49C5ACA81364550F00FCEB9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SingleProductViewController.xib; sourceTree = "<group>"; };
+		49C5ACAA1364550F00FCEB9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WebView.xib; sourceTree = "<group>"; };
+		49C5ACAF1364569700FCEB9C /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		49C5ACB0136456A100FCEB9C /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MapView.xib; sourceTree = "<group>"; };
+		49C5ACB1136456A100FCEB9C /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/SingleProductViewController.xib; sourceTree = "<group>"; };
+		49C5ACB2136456A100FCEB9C /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/WebView.xib; sourceTree = "<group>"; };
 		49D4BEF012E32730007F1758 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		49D4BEF112E32730007F1758 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		49D4BF0912E32AD7007F1758 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -110,14 +117,14 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				498A22D7136570A1009F742D /* TDBadgedCell.h */,
+				498A22D8136570A1009F742D /* TDBadgedCell.m */,
+				498A22D41365708B009F742D /* SingleProductViewController.h */,
+				498A22D51365708B009F742D /* SingleProductViewController.m */,
+				498A22D113657073009F742D /* ProductsOverviewController.h */,
+				498A22D213657073009F742D /* ProductsOverviewController.m */,
 				4954C90412C77A92009A7F36 /* MKMapView+ZoomLevel.h */,
 				4954C90512C77A92009A7F36 /* MKMapView+ZoomLevel.m */,
-				490235F012BE8BE600329F60 /* TDBadgedCell.h */,
-				490235F112BE8BE600329F60 /* TDBadgedCell.m */,
-				4968C68112A2C2C10079533A /* SingleProductViewController.h */,
-				4968C68212A2C2C10079533A /* SingleProductViewController.m */,
-				492BE973129B16AD0011657A /* ProductsOverviewController.h */,
-				492BE974129B16AD0011657A /* ProductsOverviewController.m */,
 				1D3623240D0F684500981E51 /* _0daylist_iphoneAppDelegate.h */,
 				1D3623250D0F684500981E51 /* _0daylist_iphoneAppDelegate.m */,
 				49A1EC9E12C4833C00D41722 /* WebViewController.h */,
@@ -143,6 +150,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				498A22DA136570BE009F742D /* Localizable.strings */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -165,6 +173,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49C5ACA31364550F00FCEB9C /* MainWindow.xib */,
+				49C5ACA51364550F00FCEB9C /* MapView.xib */,
+				49C5ACA71364550F00FCEB9C /* SingleProductViewController.xib */,
+				49C5ACA91364550F00FCEB9C /* WebView.xib */,
 				49D4BEF012E32730007F1758 /* default.png */,
 				49D4BEF112E32730007F1758 /* default@2x.png */,
 				49783E4812C74EBD0074CEA5 /* table_bg.png */,
@@ -173,12 +185,8 @@
 				49D4BF0A12E32AD7007F1758 /* Icon.png */,
 				49D4BF0B12E32AD7007F1758 /* Icon@2x.png */,
 				4980787812C4E23A00B671F5 /* icons */,
-				4968C67E12A2C23B0079533A /* SingleProductViewController.xib */,
 				2819305F112F816700ECF9B4 /* _0daylist_iphone.xcdatamodeld */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* _0daylist_iphone-Info.plist */,
-				49A1ECB112C4848B00D41722 /* WebView.xib */,
-				4939164C12C4B2E300C34228 /* MapView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -240,6 +248,8 @@
 				Japanese,
 				French,
 				German,
+				en,
+				de,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -255,10 +265,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				4968C67F12A2C23B0079533A /* SingleProductViewController.xib in Resources */,
-				49A1ECB212C4848B00D41722 /* WebView.xib in Resources */,
-				4939164D12C4B2E300C34228 /* MapView.xib in Resources */,
 				4980787C12C4E23A00B671F5 /* arrowleft.png in Resources */,
 				4980787D12C4E23A00B671F5 /* arrowright.png in Resources */,
 				4980787E12C4E23A00B671F5 /* reload.png in Resources */,
@@ -269,6 +275,11 @@
 				49D4BF0C12E32AD7007F1758 /* Icon-72.png in Resources */,
 				49D4BF0D12E32AD7007F1758 /* Icon.png in Resources */,
 				49D4BF0E12E32AD7007F1758 /* Icon@2x.png in Resources */,
+				49C5ACAB1364550F00FCEB9C /* MainWindow.xib in Resources */,
+				49C5ACAC1364550F00FCEB9C /* MapView.xib in Resources */,
+				49C5ACAD1364550F00FCEB9C /* SingleProductViewController.xib in Resources */,
+				49C5ACAE1364550F00FCEB9C /* WebView.xib in Resources */,
+				498A22DC136570BE009F742D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,19 +293,67 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* _0daylist_iphoneAppDelegate.m in Sources */,
 				28193060112F816700ECF9B4 /* _0daylist_iphone.xcdatamodeld in Sources */,
-				492BE975129B16AD0011657A /* ProductsOverviewController.m in Sources */,
-				4968C68312A2C2C10079533A /* SingleProductViewController.m in Sources */,
-				490235F212BE8BE600329F60 /* TDBadgedCell.m in Sources */,
 				49A1ECA012C4833C00D41722 /* WebViewController.m in Sources */,
 				4939165112C4B31900C34228 /* MapViewController.m in Sources */,
 				4954C90612C77A92009A7F36 /* MKMapView+ZoomLevel.m in Sources */,
 				4954C94612C77E9C009A7F36 /* SSMapAnnotation.m in Sources */,
 				4962858312E736520033E9BC /* 30daylist.xcmappingmodel in Sources */,
 				49D9177812EB0425008FE000 /* ProductManager.m in Sources */,
+				498A22D313657073009F742D /* ProductsOverviewController.m in Sources */,
+				498A22D61365708B009F742D /* SingleProductViewController.m in Sources */,
+				498A22D9136570A1009F742D /* TDBadgedCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		498A22DA136570BE009F742D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				498A22DB136570BE009F742D /* en */,
+				498A22E01365712D009F742D /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		49C5ACA31364550F00FCEB9C /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5ACA41364550F00FCEB9C /* en */,
+				49C5ACAF1364569700FCEB9C /* de */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		49C5ACA51364550F00FCEB9C /* MapView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5ACA61364550F00FCEB9C /* en */,
+				49C5ACB0136456A100FCEB9C /* de */,
+			);
+			name = MapView.xib;
+			sourceTree = "<group>";
+		};
+		49C5ACA71364550F00FCEB9C /* SingleProductViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5ACA81364550F00FCEB9C /* en */,
+				49C5ACB1136456A100FCEB9C /* de */,
+			);
+			name = SingleProductViewController.xib;
+			sourceTree = "<group>";
+		};
+		49C5ACA91364550F00FCEB9C /* WebView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49C5ACAA1364550F00FCEB9C /* en */,
+				49C5ACB2136456A100FCEB9C /* de */,
+			);
+			name = WebView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -380,6 +439,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

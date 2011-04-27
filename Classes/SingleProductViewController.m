@@ -40,7 +40,7 @@ static const NSInteger kProductURLRow = 3;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.title = NSLocalizedString(@"New item", nil);
+	self.title = NSLocalizedString(@"New item", @"item form title");
 	
 	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveProduct)];
 	self.navigationItem.rightBarButtonItem = doneButton;
@@ -92,19 +92,19 @@ static const NSInteger kProductURLRow = 3;
 	NSDate *now = [[NSDate alloc] init];
 	
 	if ([[productNameField text] length] == 0) {
-		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: @"Oh my!" message: @"Please enter the name of this fine product!" delegate: self cancelButtonTitle: @"Alright then…" otherButtonTitles: nil];
+		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Oh my!", @"item form error message title") message: NSLocalizedString(@"Please enter the name of this fine product!", nil) delegate: self cancelButtonTitle: NSLocalizedString(@"Alright then…", @"item form error message action") otherButtonTitles: nil];
 		[validationError show];
 		[validationError release];
 		return;
 	}	
 	if (price == nil) {
-		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: @"Oh my!" message: @"You did not enter a price. That is quite cheap!" delegate: self cancelButtonTitle: @"Alright then…" otherButtonTitles: nil];
+		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Oh my!", @"item form error message title") message: NSLocalizedString(@"You did not enter a price. That is quite cheap!", nil) delegate: self cancelButtonTitle: NSLocalizedString(@"Alright then…", @"item form error message action") otherButtonTitles: nil];
 		[validationError show];
 		[validationError release];
 		return;
 	}
 	if ([[productFoundWhereField text] length] == 0) {
-		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: @"Oh my!" message: @"Please tell me where I can purchase such quality items!" delegate: self cancelButtonTitle: @"Alright then…" otherButtonTitles: nil];
+		UIAlertView *validationError = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Oh my!", @"item form error message title") message: NSLocalizedString(@"Please tell me where I can purchase such quality items!", nil) delegate: self cancelButtonTitle: NSLocalizedString(@"Alright then…", @"item form error message action") otherButtonTitles: nil];
 		[validationError show];
 		[validationError release];
 		return;
@@ -129,10 +129,10 @@ static const NSInteger kProductURLRow = 3;
 	
 	NSError *error;
 	if (![managedObjectContext save:&error]) {
-		NSLog([error localizedDescription]);
+/*		NSLog([error localizedDescription]);
 		NSLog([error localizedFailureReason]);
 		NSLog([error localizedRecoveryOptions]);
-		NSLog([error localizedRecoverySuggestion]);
+		NSLog([error localizedRecoverySuggestion]);*/
 		NSLog(@"Fehler beim Speichern des Produkts");
 	}/* else {
 		NSLog(@"We cool? Then schedule a notification");
@@ -176,11 +176,11 @@ static const NSInteger kProductURLRow = 3;
 			productNameField.keyboardType = UIKeyboardTypeAlphabet;
 			productNameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
 			productNameField.clearButtonMode = UITextFieldViewModeWhileEditing;
-			[productNameField setPlaceholder:NSLocalizedString(@"Awesome Product", nil)];
+			[productNameField setPlaceholder:NSLocalizedString(@"Awesome Product", @"item form product placeholder")];
 			[productNameField setReturnKeyType:UIReturnKeyNext];
 			[productNameField setText:[product valueForKey:@"name"]];
 			[productNameField setTag:kProductNameRow];
-			cell.textLabel.text = NSLocalizedString(@"What?", nil);
+			cell.textLabel.text = NSLocalizedString(@"What?", @"item form product label");
 
 			[productNameField setDelegate:self];
 			[productNameField setEnabled: YES];
@@ -198,7 +198,7 @@ static const NSInteger kProductURLRow = 3;
 			
 			NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 			[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-			[productPriceField setPlaceholder:[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [formatter stringFromNumber:[[NSNumber alloc] initWithFloat:0.99]]]];
+			[productPriceField setPlaceholder:[NSString stringWithFormat:@"%@", [formatter stringFromNumber:[[NSNumber alloc] initWithFloat:0.99]]]];
 			[productPriceField setReturnKeyType:UIReturnKeyNext];
 			[productPriceField setTag:kProductPriceRow];
 			if ([product valueForKey:@"price"] == nil) {
@@ -206,7 +206,7 @@ static const NSInteger kProductURLRow = 3;
 			} else {
 				[productPriceField setText:[NSString stringWithFormat:@"%@", [product valueForKey:@"price"]]];
 			}
-			cell.textLabel.text = NSLocalizedString(@"How much?", nil);
+			cell.textLabel.text = NSLocalizedString(@"How much?", @"item form price label");
 
 			[productPriceField setDelegate:self];
 			[productPriceField setEnabled: YES];
@@ -220,11 +220,11 @@ static const NSInteger kProductURLRow = 3;
 			
 			productFoundWhereField.keyboardType = UIKeyboardTypeAlphabet;
 			productFoundWhereField.clearButtonMode = UITextFieldViewModeWhileEditing;
-			[productFoundWhereField setPlaceholder:NSLocalizedString(@"Found at", nil)];
+			[productFoundWhereField setPlaceholder:NSLocalizedString(@"Found at", @"item form location placeholder")];
 			[productFoundWhereField setReturnKeyType:UIReturnKeyNext];
 			[productFoundWhereField setText:[product valueForKey:@"found_where"]];
 			[productFoundWhereField setTag:kProductFoundWhereRow];
-			cell.textLabel.text = NSLocalizedString(@"Where?", nil);
+			cell.textLabel.text = NSLocalizedString(@"Where?", @"item form location label");
 			
 			[productFoundWhereField setDelegate:self];
 			[productFoundWhereField setEnabled: YES];
@@ -239,11 +239,11 @@ static const NSInteger kProductURLRow = 3;
 			[productURLField setKeyboardType:UIKeyboardTypeURL];
 			productURLField.autocapitalizationType = UITextAutocapitalizationTypeNone;
 			productURLField.clearButtonMode = UITextFieldViewModeWhileEditing;
-			[productURLField setPlaceholder:NSLocalizedString(@"www.product.com", nil)];
+			[productURLField setPlaceholder:NSLocalizedString(@"www.product.com", @"item form web placeholder")];
 			[productURLField setReturnKeyType:UIReturnKeyDone];
 			[productURLField setText:[product valueForKey:@"found_url"]];
 			[productURLField setTag:kProductURLRow];
-			cell.textLabel.text = NSLocalizedString(@"URL", nil);
+			cell.textLabel.text = NSLocalizedString(@"URL", @"item form web label");
 			
 			[productURLField setDelegate:self];
 			[productURLField setEnabled: YES];

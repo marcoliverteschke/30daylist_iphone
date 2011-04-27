@@ -43,21 +43,21 @@
 	NSManagedObject *product = [fetchedResultsController objectAtIndexPath:indexPath];
 	self.currentProduct = product;
 	UIActionSheet *actionsMenu = [[UIActionSheet alloc]
-							 initWithTitle: @"Show me that thing…"
+							 initWithTitle: NSLocalizedString(@"Show me that thing…", @"title of the action sheet appearing when an item is tapped")
 							 delegate:self
 							 cancelButtonTitle:nil
 							 destructiveButtonTitle:nil
 							 otherButtonTitles: nil];
 	
 	if ([[product valueForKey:@"found_url"] length] > 0) {
-		[actionsMenu addButtonWithTitle:@"in the browser"];
+		[actionsMenu addButtonWithTitle:NSLocalizedString(@"in the browser", @"option to show the item in the browser")];
 	}
 
 	if ([[[product valueForKey:@"found_latitude"] stringValue] length] > 0 && [[[product valueForKey:@"found_longitude"] stringValue]length] > 0) {
-		[actionsMenu addButtonWithTitle:@"on a map"];
+		[actionsMenu addButtonWithTitle:NSLocalizedString(@"on a map", @"option to show the item on the maps view")];
 	}
 	
-	[actionsMenu addButtonWithTitle:@"Uh, never mind"];
+	[actionsMenu addButtonWithTitle:NSLocalizedString(@"Uh, never mind", @"dismiss the action sheet and do nothing")];
 	[actionsMenu setCancelButtonIndex:[actionsMenu numberOfButtons] - 1];
     [actionsMenu showInView:self.view];	
 	
@@ -70,9 +70,9 @@
 	// latlong => 0 == map, 1 == cancel
 	// url + latlong => 0 == browser, 1 == latlong, 2 == cancel
 	
-	if ([actionSheet buttonTitleAtIndex:buttonIdx] == @"in the browser") {
+	if ([actionSheet buttonTitleAtIndex:buttonIdx] == NSLocalizedString(@"in the browser", nil)) {
 		[self showInBrowser:self.currentProduct];
-	} else if ([actionSheet buttonTitleAtIndex:buttonIdx] == @"on a map") {
+	} else if ([actionSheet buttonTitleAtIndex:buttonIdx] == NSLocalizedString(@"on a map", nil)) {
 		[self showOnMap:self.currentProduct];
 	} else {
 		[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
@@ -126,7 +126,7 @@
 	[addButton release];
 
 	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:2592000]];
-//	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:300]];
+//	[self setTimeToFireNotification:[[NSNumber alloc] initWithInt:60]];
 	[self startStandardUpdates];
 }
 
@@ -175,8 +175,8 @@
 		if ([inTheFuture isEqualToDate:[inTheFuture laterDate:[NSDate new]]]) {
 			UILocalNotification *notification = [[UILocalNotification alloc] init];
 			[notification setFireDate:inTheFuture];
-			[notification setAlertBody:[NSString stringWithFormat:@"It's time to review %@", [item valueForKey:@"name"]]];
-			[notification setAlertAction:@"Review"];
+			[notification setAlertBody:[NSString stringWithFormat:NSLocalizedString(@"It's time to review %@", @"notification message when an item is due"), [item valueForKey:@"name"]]];
+			[notification setAlertAction:NSLocalizedString(@"Review", @"action of the local notification when an item is due")];
 			[notification setSoundName:UILocalNotificationDefaultSoundName];
 			[notification setApplicationIconBadgeNumber:i];
 			[[UIApplication sharedApplication] scheduleLocalNotification:notification];
@@ -215,7 +215,7 @@
 
 
 -(void)populateWithDemoData {
-	UIAlertView *firstLaunchAlert = [[UIAlertView alloc] initWithTitle: @"Hey there!" message: @"I don't think we've met before. I've created some sample data for you to see what 30daylist does." delegate: self cancelButtonTitle: @"Let's rock!" otherButtonTitles: nil];
+	UIAlertView *firstLaunchAlert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Hey there!", @"first launch message title") message: NSLocalizedString(@"I don't think we've met before. I've created some sample data for you to see what 30daylist does.", @"first launch message body") delegate: self cancelButtonTitle: NSLocalizedString(@"Let's rock!", @"first launch message action") otherButtonTitles: nil];
 	[firstLaunchAlert show];
 	[firstLaunchAlert release];
 	
@@ -228,7 +228,7 @@
 	NSNumber *price = [priceFormatter numberFromString:@"0.99"];
 	NSDate *due = [[[NSDate alloc] init] dateByAddingTimeInterval:(86400 * 30 * -1)];
 	id product = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContext];
-	[product setValue:@"item ready for review" forKey:@"name"];
+	[product setValue:NSLocalizedString(@"item ready for review", nil) forKey:@"name"];
 	[product setValue:price forKey:@"price"];
 	[product setValue:@"30daylist" forKey:@"found_where"];
 	[product setValue:@"http://www.30daylistapp.com" forKey:@"found_url"];
@@ -242,7 +242,7 @@
 
 	due = [[[NSDate alloc] init] dateByAddingTimeInterval:(86400 * 30 * -1) + (300)];
 	product = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContext];
-	[product setValue:@"item due in 5 minutes" forKey:@"name"];
+	[product setValue:NSLocalizedString(@"item due in 5 minutes", nil) forKey:@"name"];
 	[product setValue:price forKey:@"price"];
 	[product setValue:@"30daylist" forKey:@"found_where"];
 	[product setValue:@"http://www.30daylistapp.com" forKey:@"found_url"];
@@ -255,7 +255,7 @@
 
 	due = [[NSDate alloc] init];
 	product = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContext];
-	[product setValue:@"item due in 30 days" forKey:@"name"];
+	[product setValue:NSLocalizedString(@"item due in 30 days", nil) forKey:@"name"];
 	[product setValue:price forKey:@"price"];
 	[product setValue:@"30daylist" forKey:@"found_where"];
 	[product setValue:@"http://www.30daylistapp.com" forKey:@"found_url"];
@@ -304,7 +304,7 @@
 	} else if (daysUntil == 0) {
 		[cell setBadgeColor:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]]; // red
 		[cell setBadgeColorHighlighted:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8f]];
-		[cell setBadgeString:@"REVIEW"];
+		[cell setBadgeString:NSLocalizedString(@"REVIEW", @"due item badge")];
 	} else {
 		[cell setBadgeColor:[UIColor colorWithRed:0.5f green:0.23f blue:0.26f alpha:0.8f]]; // red
 		[cell setBadgeColorHighlighted:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.8f]];
