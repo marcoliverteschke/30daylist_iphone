@@ -69,10 +69,9 @@
 	// url => 0 == browser, 1 == cancel
 	// latlong => 0 == map, 1 == cancel
 	// url + latlong => 0 == browser, 1 == latlong, 2 == cancel
-	
-	if ([actionSheet buttonTitleAtIndex:buttonIdx] == NSLocalizedString(@"in the browser", nil)) {
+	if ([[actionSheet buttonTitleAtIndex:buttonIdx] isEqualToString:NSLocalizedString(@"in the browser", nil)]) {
 		[self showInBrowser:self.currentProduct];
-	} else if ([actionSheet buttonTitleAtIndex:buttonIdx] == NSLocalizedString(@"on a map", nil)) {
+	} else if ([[actionSheet buttonTitleAtIndex:buttonIdx] isEqualToString:NSLocalizedString(@"on a map", nil)]) {
 		[self showOnMap:self.currentProduct];
 	} else {
 		[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
